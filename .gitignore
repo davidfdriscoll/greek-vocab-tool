@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+.env
+
+# IDE
+.idea/
+*.iml
+
+# Morpheus build artifacts
+morpheus/bin/
+morpheus/src/*.o
+morpheus/src/*.a
+morpheus/src/cruncher
+morpheus/src/pname
+morpheus/src/findbase
+morpheus/src/deverbal
+morpheus/src/do_conj
+morpheus/src/gener
+morpheus/src/checkstype 
+.idea/codeStyles/codeStyleConfig.xml
+.idea/codeStyles/Project.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+/greek_vocab_tool.egg-info
+.idea/vcs.xml
+.idea/modules.xml
+.idea/misc.xml
+.idea/codeStyles/Project.xml
+.idea/codeStyles/codeStyleConfig.xml
