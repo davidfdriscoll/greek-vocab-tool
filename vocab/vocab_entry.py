@@ -15,8 +15,17 @@ class VocabEntry:
     
     def format_entry(self) -> str:
         """Format the entry for display in a vocabulary list."""
-        parts = [self.lemma]
-        if self.morphology:
-            parts.append(self.morphology)
-        parts.append(self.definition)
-        return ": ".join([", ".join(parts[:-1]), parts[-1]]) 
+        # For entries without morphology, just show lemma: definition
+        if not self.morphology:
+            return f"{self.lemma}: {self.definition}"
+            
+        # For entries with morphology, show lemma, morphology: definition
+        # If morphology is article only (ὁ, ἡ, τό), put it before the definition
+        if self.morphology in ["ὁ", "ἡ", "τό", "ὁ, ἡ", "ὁ/ἡ/τό"]:
+            return f"{self.lemma}, {self.morphology}: {self.definition}"
+        # If morphology starts with a parenthesis (like "(adv.)"), put it before the definition
+        elif self.morphology.startswith("("):
+            return f"{self.lemma} {self.morphology}: {self.definition}"
+        # For entries with genitive or adjectival endings, embed them in the entry
+        else:
+            return f"{self.lemma}, {self.morphology}: {self.definition}" 

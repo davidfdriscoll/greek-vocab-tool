@@ -10,11 +10,12 @@ from .morph_class import MorphClass, UnknownMorphClassError
 from .definition_loader import DefinitionLoader
 
 class MorphParser:
-    def __init__(self, cruncher_path: str, stemlib_path: str):
+    def __init__(self, cruncher_path: str, stemlib_path: str, debug=False):
         self.cruncher_path = cruncher_path
         self.env = os.environ.copy()
         self.env["MORPHLIB"] = stemlib_path
         self.definition_loader = DefinitionLoader()
+        self.debug = debug
 
     def _get_attic_lemma(self, lemma: str) -> str:
         """Extract the Attic form from a lemma string.
@@ -58,7 +59,7 @@ class MorphParser:
             print(f"Warning: {e} in word with features {features} and morph_classes {morph_classes}")
             raise
 
-    def parse_word(self, word: str) -> List[MorphEntry]:
+    def parse_word(self, word: str, verbose=False) -> List[MorphEntry]:
         try:
             # Ensure word is in Beta Code format for Morpheus
             # More comprehensive check for Beta Code markers
@@ -80,17 +81,29 @@ class MorphParser:
                 env=self.env,
                 check=True
             )
-            return self._parse_output(word, result.stdout)
+            
+            if verbose or self.debug:
+                print(f"\nDEBUG: Raw morpheus output for '{word}':")
+                print(result.stdout)
+                
+            return self._parse_output(word, result.stdout, verbose)
         except subprocess.CalledProcessError as e:
             print(f"Error processing word '{word}': {e}")
+            print(f"stderr: {e.stderr}")
             return []
 
-    def _parse_output(self, original: str, raw_output: str) -> List[MorphEntry]:
+    def _parse_output(self, original: str, raw_output: str, verbose=False) -> List[MorphEntry]:
         entries = []
         matches = re.findall(r"<NL>(.*?)</NL>", raw_output, re.DOTALL)
+        
+        if verbose or self.debug:
+            print(f"DEBUG: Found {len(matches)} matches in morpheus output for '{original}'")
+        
         for line in matches:
             parts = line.strip().split()
             if not parts or len(parts) < 3:
+                if verbose or self.debug:
+                    print(f"DEBUG: Skipping match, insufficient parts: '{line}'")
                 continue
 
             raw_pos_code = parts[0]
@@ -100,6 +113,13 @@ class MorphParser:
             split_index = next((i for i, part in enumerate(parts[2:], 2) if "_" in part or "," in part), len(parts))
             raw_features = parts[2:split_index]
             raw_morph_class = " ".join(parts[split_index:])
+            
+            if verbose or self.debug:
+                print(f"DEBUG: Processing match:")
+                print(f"  - POS code: {raw_pos_code}")
+                print(f"  - Lemma: {raw_lemma} -> {lemma}")
+                print(f"  - Features: {raw_features}")
+                print(f"  - Morph class: {raw_morph_class}")
 
             try:
                 # Convert raw strings to enum values
@@ -125,6 +145,11 @@ class MorphParser:
             except (UnknownPartOfSpeechError, UnknownFeatureError, UnknownMorphClassError) as e:
                 # Log the error but continue processing other entries
                 print(f"Warning while processing '{original}': {e}")
+                if verbose or self.debug:
+                    print(f"DEBUG: Exception details: {type(e).__name__}: {str(e)}")
                 continue
 
+        if len(entries) == 0 and (verbose or self.debug):
+            print(f"DEBUG: No valid entries found for '{original}'")
+            
         return entries
