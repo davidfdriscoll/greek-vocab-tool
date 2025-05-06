@@ -109,6 +109,15 @@ class Feature(Enum):
     HOMERIC = "homeric"  # For Homeric forms
     SYNCOPE = "syncope"  # For forms with syncope (like Δήμητρα)
     
+    # Adding missing feature found in the warnings
+    IMPERSONAL = "impersonal"
+    
+    # Adding missing features from the new warnings
+    LATE = "late"           # For late Greek forms
+    RARE = "rare"           # For rare forms
+    APOCOPE = "apocope"     # For forms with apocope
+    PROSE = "prose"         # For prose forms
+    
     @classmethod
     def from_str(cls, feature: str) -> 'Feature':
         """Convert a morpheus feature string to the enum value.

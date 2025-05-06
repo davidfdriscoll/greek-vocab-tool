@@ -104,6 +104,41 @@ class MorphClass(Enum):
     O_STEM = "o_stem"              # o-stem nouns
     ADVERBIAL_ENDING = "ws_adv"    # Adverbial ending -ως
     
+    # Adding missing morph classes found in warnings
+    E_STEM = "e_stem"
+    REG_FUT = "reg_fut"
+    
+    # Adding missing classes from the new warnings
+    EUS_EWS = "eus_ews"            # For nouns like βασιλεύς, -έως
+    IRREG_ADJ3 = "irreg_adj3"      # Irregular adjectives of third declension
+    AIRW = "airw"                  # For verbs like αἴρω
+    WS_W = "ws_w"                  # For nouns like νεώς, νεώ
+    AOS_AOU = "aos_aou"            # For nouns like γέλως, γέλω
+    WN_ON_COMP = "wn_on_comp"      # For comparative adjectives with -ων, -ον
+    PARAD_FORM = "parad_form"      # Paradigmatic forms
+    EW_FUT = "ew_fut"              # Future of -έω verbs
+    IRREG_SUPERL = "irreg_superl"  # Irregular superlative forms
+    SHORT_SUBJ = "short_subj"      # Short subjunctive forms
+    
+    # Adding remaining missing classes from the warnings
+    E_SUPPL = "e_suppl"            # Epsilon supplemental forms
+    LATER = "later"                # Later Greek forms
+    
+    @classmethod
+    def get_adjective_classes(cls) -> Set['MorphClass']:
+        """Returns the set of morphological classes that indicate an adjective."""
+        return {
+            cls.ADJ_2_1_2,       # os_h_on like ἀγαθός, -ή, -όν
+            cls.ADJ_2_2,         # os_on like βάρβαρος, -ον
+            cls.ADJ_3_3,         # hs_es like ἀληθής, -ές
+            cls.WN_ON,           # wn_on like σώφρων, σῶφρον
+            cls.US_EIA_U,        # us_eia_u like γλυκύς, γλυκεῖα, γλυκύ
+            cls.IRREG_ADJ3,      # Irregular adjectives of third declension
+            cls.WN_ON_COMP,      # Comparative adjectives like μείζων, μεῖζον
+            cls.IRREG_COMP,      # Irregular comparative forms
+            cls.IRREG_SUPERL     # Irregular superlative forms
+        }
+    
     @classmethod
     def from_str(cls, morph_class: str) -> Set['MorphClass']:
         """Convert a morpheus class string to a set of enum values.
@@ -141,4 +176,16 @@ class MorphClass(Enum):
     
     def __str__(self) -> str:
         """Return a human-readable string representation."""
-        return self.name.lower().replace('_', ' ') 
+        return self.name.lower().replace('_', ' ')
+
+    @classmethod
+    def is_adjective(cls, morph_classes: Set['MorphClass']) -> bool:
+        """Check if any of the given morphological classes indicate an adjective.
+        
+        Args:
+            morph_classes: Set of morphological classes to check
+            
+        Returns:
+            True if any of the morphological classes indicate an adjective, False otherwise
+        """
+        return bool(morph_classes.intersection(cls.get_adjective_classes())) 

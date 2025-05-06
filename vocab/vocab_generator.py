@@ -23,6 +23,18 @@ class VocabGenerator:
                 if vocab_entry.lemma not in vocab_dict:
                     vocab_dict[vocab_entry.lemma] = vocab_entry
         
+        # Add proper names that couldn't be parsed
+        for proper_name in self.text_processor.PROPER_NAMES:
+            # Only add if we haven't already added this name
+            if proper_name not in vocab_dict:
+                vocab_entry = VocabEntry(
+                    lemma=proper_name,
+                    definition="COULD NOT PARSE, LIKELY PROPER NAME",
+                    part_of_speech="noun",
+                    morphology="ὁ"  # Assume masculine
+                )
+                vocab_dict[proper_name] = vocab_entry
+        
         # Sort entries alphabetically
         return sorted(vocab_dict.values())
         

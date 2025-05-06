@@ -48,8 +48,6 @@ class MorphParser:
             if pos == PartOfSpeech.NOUN:
                 if Feature.ARTICLE in features:
                     return PartOfSpeech.ARTICLE
-                elif MorphClass.ADJ_2_1_2 in morph_classes:
-                    return PartOfSpeech.ADJECTIVE
                 else:
                     return PartOfSpeech.NOUN
                     
@@ -59,22 +57,46 @@ class MorphParser:
             print(f"Warning: {e} in word with features {features} and morph_classes {morph_classes}")
             raise
 
-    def parse_word(self, word: str, verbose=False) -> List[MorphEntry]:
+    def parse_word(self, word: str, verbose=False, ignore_case=False, ignore_accent=False) -> List[MorphEntry]:
         try:
+            # Check for various apostrophe characters that might appear in Unicode text
+            apostrophe_chars = ["'", "ʼ", "'", "᾽", "᾿", "ʻ", "`"]
+            has_initial_apostrophe = any(word.startswith(a) for a in apostrophe_chars)
+            
+            # Store the original word for later reference
+            original_word = word
+            
             # Ensure word is in Beta Code format for Morpheus
             # More comprehensive check for Beta Code markers
-            beta_code_markers = set("/*\\()=|'<>_^")
+            beta_code_markers = set("/*\\()=|<>_^")
             is_beta_code = any(c in word for c in beta_code_markers)
             
             if not is_beta_code:
                 try:
-                    word = beta_code.greek_to_beta_code(word)
+                    # If word has an initial apostrophe in Unicode, we need to preserve it
+                    if has_initial_apostrophe:
+                        # Remove apostrophe temporarily, convert to Beta Code, then add it back
+                        apostrophe = "'"  # Use standard apostrophe for beta code
+                        word_without_apostrophe = word[1:]
+                        word = apostrophe + beta_code.greek_to_beta_code(word_without_apostrophe)
+                    else:
+                        word = beta_code.greek_to_beta_code(word)
                 except Exception as e:
                     print(f"Warning: Failed to convert '{word}' to Beta Code: {e}")
                     return []
+            
+            # Prepare cruncher command with flags
+            cmd = [self.cruncher_path]
+            if ignore_case:
+                cmd.append("-S")
+            if ignore_accent:
+                cmd.append("-n")
+                
+            if verbose or self.debug:
+                print(f"\nDEBUG: Sending to morpheus: '{word}'")
                 
             result = subprocess.run(
-                [self.cruncher_path],
+                cmd,
                 input=word,
                 text=True,
                 capture_output=True,
@@ -86,7 +108,10 @@ class MorphParser:
                 print(f"\nDEBUG: Raw morpheus output for '{word}':")
                 print(result.stdout)
                 
-            return self._parse_output(word, result.stdout, verbose)
+            # For words with initial apostrophes, we need to preserve the original apostrophe
+            # in the results, so we pass the original word to _parse_output
+            return self._parse_output(original_word if has_initial_apostrophe else word, 
+                                    result.stdout, verbose)
         except subprocess.CalledProcessError as e:
             print(f"Error processing word '{word}': {e}")
             print(f"stderr: {e.stderr}")
@@ -127,15 +152,31 @@ class MorphParser:
                 morph_classes = MorphClass.from_str(raw_morph_class)
                 part_of_speech = self._determine_part_of_speech(raw_pos_code, features, morph_classes)
                 
-                # Convert original word from Beta Code to Unicode if it's in Beta Code
-                if any(c in original for c in "/*\\()=|"):
-                    original = beta_code.beta_code_to_greek(original)
+                # For words that came in as Unicode (not Beta Code), ensure we return them in Unicode
+                if not any(c in original for c in "/*\\()=|"):
+                    # Handle apostrophe preservation for Unicode input
+                    apostrophe_chars = ["'", "ʼ", "'", "᾽", "᾿", "ʻ", "`"]
+                    if any(original.startswith(a) for a in apostrophe_chars):
+                        # Keep the original apostrophe character
+                        apostrophe = original[0]
+                        # Use the original Unicode word that was passed in
+                        processed_original = original
+                    else:
+                        processed_original = original
+                else:
+                    # For Beta Code input, convert to Unicode
+                    # If the original has an initial apostrophe, preserve it
+                    if original.startswith("'"):
+                        original_without_apostrophe = original[1:]
+                        processed_original = "'" + beta_code.beta_code_to_greek(original_without_apostrophe)
+                    else:
+                        processed_original = beta_code.beta_code_to_greek(original)
                 
                 # Get the short definition for the lemma
                 short_definition = self.definition_loader.get_definition(lemma)
                 
                 entries.append(MorphEntry(
-                    original=original,
+                    original=processed_original,
                     part_of_speech=part_of_speech,
                     lemma=lemma,
                     features=features,

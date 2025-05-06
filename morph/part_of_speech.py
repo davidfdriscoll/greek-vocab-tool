@@ -8,9 +8,8 @@ class UnknownPartOfSpeechError(ValueError):
 
 class PartOfSpeech(Enum):
     """Enumeration of possible parts of speech returned by the morpheus parser."""
-    NOUN = "N"
+    NOUN = "N"  # Note: This includes adjectives, which are distinguished by morph_class
     VERB = "V"
-    ADJECTIVE = "N"  # Note: Distinguished from nouns by morph_class
     ARTICLE = "N"    # Note: Distinguished from nouns by features
     ADVERB = "Adv"
     PARTICLE = "Part"
