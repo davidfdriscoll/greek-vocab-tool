@@ -1,2 +1,8 @@
 # No external dependencies required at the moment
 # The morph module is included in the repository 
+
+# Dependencies
+beta-code>=1.0.0  # Greek Beta Code to Unicode conversion
+
+# Core dependencies
+pytest>=7.0.0  # Testing framework 

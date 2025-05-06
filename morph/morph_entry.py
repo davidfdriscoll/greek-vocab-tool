@@ -1,10 +1,14 @@
 from dataclasses import dataclass
-from typing import List
+from typing import Set
+from .part_of_speech import PartOfSpeech
+from .features import Feature
+from .morph_class import MorphClass
 
-@dataclass(frozen=True)
+@dataclass
 class MorphEntry:
+    """A single morphological analysis result."""
     original: str
-    part_of_speech: str
+    part_of_speech: PartOfSpeech
     lemma: str
-    features: List[str]
-    morph_class: str
+    features: Set[Feature]
+    morph_classes: Set[MorphClass]

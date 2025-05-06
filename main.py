@@ -1,5 +1,6 @@
 from morph import MorphParser
 import os
+import beta_code
 
 # Get the directory where this script is located
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -9,13 +10,16 @@ stemlib = os.path.join(morpheus_root, "stemlib")
 
 parser = MorphParser(cruncher_path=cruncher, stemlib_path=stemlib)
 
+# Unicode Greek words
 words = [
-    "a)/nqrwpos", "gunh/", "o(", "kai/", "lo/gos", "tima=", "e)/dwken",
-    "h)=n", "ei)=nai", "a)gaqo/s", "kalo/s", "mh/", "ti/s", "au)to/s", "le/gei"
+    "ἄνθρωπος", "γυνή", "ὁ", "καί", "λόγος", "τιμᾷ", "ἔδωκεν",
+    "ἦν", "εἶναι", "ἀγαθός", "καλός", "μή", "τίς", "αὐτός", "λέγει"
 ]
 
 for word in words:
     print(f"\nProcessing: {word}")
-    results = parser.parse_word(word)
+    # Convert Unicode to Beta Code for Morpheus
+    beta_word = beta_code.greek_to_beta_code(word)
+    results = parser.parse_word(beta_word)
     for entry in results:
         print(entry)
