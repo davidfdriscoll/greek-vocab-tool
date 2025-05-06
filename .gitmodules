@@ -1,3 +1,6 @@
 [submodule "morpheus"]
 	path = morpheus
 	url = https://github.com/perseids-tools/morpheus.git
+[submodule "shortdefs"]
+	path = shortdefs
+	url = https://github.com/helmadik/shortdefs.git

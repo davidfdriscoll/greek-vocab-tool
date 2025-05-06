@@ -7,12 +7,14 @@ from .morph_entry import MorphEntry
 from .part_of_speech import PartOfSpeech, UnknownPartOfSpeechError
 from .features import Feature, UnknownFeatureError
 from .morph_class import MorphClass, UnknownMorphClassError
+from .definition_loader import DefinitionLoader
 
 class MorphParser:
     def __init__(self, cruncher_path: str, stemlib_path: str):
         self.cruncher_path = cruncher_path
         self.env = os.environ.copy()
         self.env["MORPHLIB"] = stemlib_path
+        self.definition_loader = DefinitionLoader()
 
     def _get_attic_lemma(self, lemma: str) -> str:
         """Extract the Attic form from a lemma string.
@@ -59,8 +61,16 @@ class MorphParser:
     def parse_word(self, word: str) -> List[MorphEntry]:
         try:
             # Ensure word is in Beta Code format for Morpheus
-            if not any(c in word for c in "/*\\()=|"):  # Simple check for Beta Code markers
-                word = beta_code.greek_to_beta_code(word)
+            # More comprehensive check for Beta Code markers
+            beta_code_markers = set("/*\\()=|'<>_^")
+            is_beta_code = any(c in word for c in beta_code_markers)
+            
+            if not is_beta_code:
+                try:
+                    word = beta_code.greek_to_beta_code(word)
+                except Exception as e:
+                    print(f"Warning: Failed to convert '{word}' to Beta Code: {e}")
+                    return []
                 
             result = subprocess.run(
                 [self.cruncher_path],
@@ -101,12 +111,16 @@ class MorphParser:
                 if any(c in original for c in "/*\\()=|"):
                     original = beta_code.beta_code_to_greek(original)
                 
+                # Get the short definition for the lemma
+                short_definition = self.definition_loader.get_definition(lemma)
+                
                 entries.append(MorphEntry(
                     original=original,
                     part_of_speech=part_of_speech,
                     lemma=lemma,
                     features=features,
-                    morph_classes=morph_classes
+                    morph_classes=morph_classes,
+                    short_definition=short_definition
                 ))
             except (UnknownPartOfSpeechError, UnknownFeatureError, UnknownMorphClassError) as e:
                 # Log the error but continue processing other entries

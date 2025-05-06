@@ -6,3 +6,4 @@ beta-code>=1.0.0  # Greek Beta Code to Unicode conversion
 
 # Core dependencies
 pytest>=7.0.0  # Testing framework 
+parameterized>=0.9.0  # Parameterized testing support 

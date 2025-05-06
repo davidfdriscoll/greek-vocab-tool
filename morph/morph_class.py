@@ -14,6 +14,9 @@ class MorphClass(Enum):
     FIRST_DECLENSION_H = "h_hs"
     SECOND_DECLENSION = "os_ou"
     THIRD_DECLENSION = "s_os"
+    MASTER_DECLENSION = "hs_ou"  # For words like δεσπότης
+    IS_EWS = "is_ews"  # For nouns like πόλις, -εως
+    IRREGULAR_DECL3 = "irreg_decl3"  # Irregular third declension nouns
     
     # Common adjective patterns
     ADJ_2_1_2 = "os_h_on"  # Like ἀγαθός, -ή, -όν
@@ -27,57 +30,114 @@ class MorphClass(Enum):
     CONTRACT = "ew_contract"
     DEPONENT = "dep"
     REGULAR = "reg_conj"    # Regular conjugation pattern
+    IRREGULAR = "irreg_mi"  # Irregular -μι verbs
+    NU_OMEGA = "nw"         # For nu-omega verbs
+    AZO = "azw"            # For verbs in -αζω
+    EUW_PRESENT = "evw_pr"  # Present stem of -ευω verbs
+    EU_STEM = "ev_stem"     # Epsilon-upsilon stem verbs
+    ALLW = "allw"          # For verbs in -αλλω
     
     # Contract verb classes
     AW_PRESENT = "aw_pr"      # Alpha contract present stem
     AW_DENOM = "aw_denom"     # Denominative alpha contract
     EW_PRESENT = "ew_pr"      # Epsilon contract present stem
+    EW_DENOM = "ew_denom"     # Denominative epsilon contract
     OW_PRESENT = "ow_pr"      # Omicron contract present stem
+    OW_DENOM = "ow_denom"     # Denominative omicron contract
+    IAW_DENOM = "iaw_denom"   # Denominative verbs in -ιαω
+    A_STEM = "a_stem"         # Alpha stem verbs
+    AW_FUTURE = "aw_fut"      # Alpha contract future
     
     # Aorist patterns
     FIRST_AORIST = "aor1"
     SECOND_AORIST = "aor2"
     ROOT_AORIST = "aor_rt"
     
+    # Perfect patterns
+    PERFECT_ACTIVE = "perf_act"  # Perfect active
+    
     # Special forms
     MOVABLE_NU = "nu_movable"
-    IRREGULAR = "irreg"
     INDECLINABLE = "indecl"
     INDEFINITE = "indef"      # For indefinite pronouns
+    SYLLABIC_AUGMENT = "syll_augment"  # For verbs with syllabic augment
+    UNAUGMENTED = "unaugmented"
+    
+    # Pronoun classes
+    PRON_ADJ1 = "pron_adj1"  # For demonstrative pronouns like τοῦτο
+    PRON_ADJ3 = "pron_adj3"  # For third declension pronouns
+    
+    # Stem classes
+    SIGMA_STEM = "ss"  # Sigma stem nouns
+    HS_EOS_STEM = "hs_eos"  # -ης, -εος stem nouns
+    S_DOS_STEM = "s_dos"  # -ς, -δος stem nouns
+    IS_IDOS_STEM = "is_idos"  # -ις, -ιδος stem nouns
+    
+    # Adding missing classes from morphkeys.h
+    DOUBLED_CONS = "doubled_cons"  # For doubled consonants
+    IOTA_INTENS = "iota_intens"    # For intensifiers with iota like οὑτοσί
+    SIG_TO_CI = "sig_to_ci"        # Sigma to csi conversion
+    IRREG_COMP = "irreg_comp"      # Irregular comparative
+    WN_ON = "wn_on"                # ῶν ον declension
+    US_EIA_U = "us_eia_u"          # ύς εῖα ύ declension
+    ATH_PRIMARY = "ath_primary"    # Athematic primary verb
+    NO_CIRCUMFLEX = "no_circumflex" # For forms preventing circumflex accent
+    EUW = "euw"                    # For verbs ending in -ευω
+    MA_MATOS = "ma_matos"          # For nouns like σόφισμα, σοφίσματος
+    ATH_H_AOR = "ath_h_aor"        # Athematic aorist with η
+    IZW = "izw"                    # For verbs ending in -ιζω
+    PTW = "ptw"                    # For verbs ending in -πτω
+    AINW = "ainw"                  # For verbs ending in -αινω
+    COMP_ONLY = "comp_only"        # Compound-only forms
+    KLEHS_KLEOUS = "klehs_kleous"  # For nouns like Ἡρακλῆς
+    OOS_OOU = "oos_oou"            # For contracted nouns like νοῦς (< νόος)
+    EH_EHS = "eh_ehs"              # For nouns with η-stem
+    N_NOS = "n_nos"                # For nouns with ν-stem
+    HR_EROS = "hr_eros"            # For nouns like Δημήτηρ
+    A_HS = "a_hs"                  # For feminine α nouns
+    AMI_SHORT = "ami_short"        # For -αμι verbs with short stem
+    PRES_REDUPL = "pres_redupl"    # Present reduplication
+    
+    # Adding more classes from the test failures
+    AOR_PASS = "aor_pass"          # Aorist passive
+    CONTR = "contr"                # Contracted form
+    O_STEM = "o_stem"              # o-stem nouns
+    ADVERBIAL_ENDING = "ws_adv"    # Adverbial ending -ως
     
     @classmethod
     def from_str(cls, morph_class: str) -> Set['MorphClass']:
-        """Convert a morpheus morphological class string to a set of enum values.
+        """Convert a morpheus class string to a set of enum values.
         
         Args:
-            morph_class: The morphological class string from morpheus
+            morph_class: The class string from morpheus (may be comma-separated)
             
         Returns:
-            Set of corresponding MorphClass enum values, empty set if input is empty
+            Set of corresponding MorphClass enum values
             
         Raises:
-            UnknownMorphClassError: If any class is not recognized and not empty
+            UnknownMorphClassError: If any class is not recognized
         """
         if not morph_class:
             return set()
             
-        # Split on whitespace and commas since morpheus can return multiple classes
-        classes = set()
-        parts = [p.strip() for part in morph_class.split() for p in part.split(',')]
-        for part in parts:
-            try:
-                # Find any enum whose value is contained in this part
-                found = False
-                for mc in cls:
-                    if mc.value in part:
-                        classes.add(mc)
-                        found = True
-                if not found:
-                    raise UnknownMorphClassError(part)
-            except ValueError:
-                raise UnknownMorphClassError(part)
-                
-        return classes
+        # Handle comma-separated classes
+        if "," in morph_class:
+            classes = set()
+            for c in morph_class.split(","):
+                classes.update(cls.from_str(c.strip()))
+            return classes
+            
+        # Handle space-separated classes
+        if " " in morph_class:
+            classes = set()
+            for c in morph_class.split():
+                classes.update(cls.from_str(c.strip()))
+            return classes
+            
+        try:
+            return {next(c for c in cls if c.value == morph_class)}
+        except StopIteration:
+            raise UnknownMorphClassError(morph_class)
     
     def __str__(self) -> str:
         """Return a human-readable string representation."""
