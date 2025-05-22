@@ -10,6 +10,8 @@ def main():
     parser.add_argument('input_file', nargs='?', help='Input file containing Greek text')
     parser.add_argument('--non-interactive', '-n', action='store_true', 
                         help='Run in non-interactive mode (no prompts)')
+    parser.add_argument('--stop-words', '-s', help='File containing stop words (one per line)')
+    parser.add_argument('--latex', '-l', action='store_true', help='Output in LaTeX format')
     args = parser.parse_args()
     
     # Initialize the morphological parser
@@ -19,7 +21,19 @@ def main():
     stemlib = os.path.join(morpheus_root, "stemlib")
     
     morph_parser = MorphParser(cruncher_path=cruncher, stemlib_path=stemlib)
-    generator = VocabGenerator(morph_parser)
+    
+    # Load stop words if provided
+    stop_words = set()
+    if args.stop_words:
+        try:
+            with open(args.stop_words, 'r', encoding='utf-8') as f:
+                stop_words = {line.strip() for line in f if line.strip()}
+        except FileNotFoundError:
+            print(f"Warning: Stop words file {args.stop_words} not found. Continuing without stop words.")
+        except Exception as e:
+            print(f"Warning: Error reading stop words file: {e}. Continuing without stop words.")
+    
+    generator = VocabGenerator(morph_parser, stop_words=stop_words, latex_output=args.latex)
     
     # Determine if we should run in interactive mode
     interactive = not args.non_interactive

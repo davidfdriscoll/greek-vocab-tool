@@ -4,8 +4,9 @@ from .text_processor import TextProcessor
 from .vocab_entry import VocabEntry
 
 class VocabGenerator:
-    def __init__(self, morph_parser: MorphParser):
-        self.text_processor = TextProcessor(morph_parser)
+    def __init__(self, morph_parser: MorphParser, stop_words: Set[str] = None, latex_output: bool = False):
+        self.text_processor = TextProcessor(morph_parser, stop_words=stop_words)
+        self.latex_output = latex_output
         
     def generate_vocab_list(self, text: str, interactive: bool = True) -> List[VocabEntry]:
         """Generate a vocabulary list from the given text."""
@@ -40,4 +41,6 @@ class VocabGenerator:
         
     def format_vocab_list(self, entries: List[VocabEntry]) -> str:
         """Format the vocabulary list for display."""
+        if self.latex_output:
+            return "\n".join(entry.format_latex_entry() for entry in entries)
         return "\n".join(entry.format_entry() for entry in entries) 

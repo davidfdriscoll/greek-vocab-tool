@@ -33,6 +33,50 @@ python main.py
 
 The script will process a predefined list of Greek words and output their morphological analysis.
 
+### Stop Words
+
+You can provide a list of stop words to exclude from the vocabulary list. Stop words are common words that you want to skip in the analysis. The stop words file should contain one word per line.
+
+Example stop words file (`resources/frogs-stop-words.txt`):
+```
+ὁ
+Ζεύς
+καί
+διά
+ἐγώ
+δέ
+τις
+εἰμί
+οὗτος
+οὐ
+```
+
+To use stop words:
+```bash
+python main.py input.txt --stop-words resources/frogs-stop-words.txt
+```
+
+### LaTeX Output
+
+You can generate LaTeX-formatted vocabulary lists by adding the `--latex` flag:
+
+```bash
+python main.py input.txt --latex
+```
+
+This will output entries in LaTeX format like:
+```
+\vocabentry{ἀληθεύω}{to speak truth}
+\vocabentry{ἀλύσκω}{to flee from, shun, escape}
+\vocabentry{ἄξιος, α, ον}{worthy, deserving}
+\vocabentry{ἀοιδή, ἡ}{song}
+```
+
+You can combine this with other options:
+```bash
+python main.py input.txt --stop-words resources/frogs-stop-words.txt --latex
+```
+
 ## Platform Support
 
 The Morpheus binary needs to be compiled for your specific platform:
