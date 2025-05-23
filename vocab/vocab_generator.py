@@ -5,7 +5,8 @@ from .vocab_entry import VocabEntry
 
 class VocabGenerator:
     def __init__(self, morph_parser: MorphParser, stop_words: Set[str] = None, latex_output: bool = False):
-        self.text_processor = TextProcessor(morph_parser, stop_words=stop_words)
+        self.text_processor = TextProcessor(morph_parser)
+        self.stop_words = stop_words or set()
         self.latex_output = latex_output
         
     def generate_vocab_list(self, text: str, interactive: bool = True) -> List[VocabEntry]:
@@ -19,6 +20,9 @@ class VocabGenerator:
         for word in words:
             morph_entries = self.text_processor.process_word(word, interactive)
             for entry in morph_entries:
+                # Skip if the lemma is in stop words
+                if entry.lemma in self.stop_words:
+                    continue
                 vocab_entry = self.text_processor.create_vocab_entry(entry)
                 # Only add if we haven't seen this lemma before
                 if vocab_entry.lemma not in vocab_dict:
@@ -26,6 +30,9 @@ class VocabGenerator:
         
         # Add proper names that couldn't be parsed
         for proper_name in self.text_processor.PROPER_NAMES:
+            # Skip if the proper name is in stop words
+            if proper_name in self.stop_words:
+                continue
             # Only add if we haven't already added this name
             if proper_name not in vocab_dict:
                 vocab_entry = VocabEntry(

@@ -30,9 +30,8 @@ class TextProcessor:
     # Track proper names we've seen but couldn't parse
     PROPER_NAMES: Set[str] = set()
     
-    def __init__(self, morph_parser: MorphParser, stop_words: Set[str] = None):
+    def __init__(self, morph_parser: MorphParser):
         self.morph_parser = morph_parser
-        self.stop_words = stop_words or set()
         
     def extract_words(self, text: str) -> List[str]:
         """Extract individual Greek words from text, ignoring punctuation."""
@@ -150,9 +149,6 @@ class TextProcessor:
         
         # If after grouping we only have one entry, return the original entries
         if len(unique_entries) == 1:
-            # Check if the single lemma is in stop words
-            if entries[0].lemma in self.stop_words:
-                return []
             return entries
             
         print(f"\nMultiple possibilities for '{word}':")
@@ -163,9 +159,6 @@ class TextProcessor:
         while True:
             choice = input("Enter number(s) of correct parse(s) (comma-separated) or press Enter for all: ").strip()
             if not choice:
-                # Check if any of the lemmas are in stop words
-                if any(entry.lemma in self.stop_words for entry in entries):
-                    return []
                 return entries
                 
             try:
@@ -178,9 +171,6 @@ class TextProcessor:
                         # Add all entries from original list that match the selected lemma
                         selected_entries.extend([e for e in entries if e.lemma == selected_lemma])
                 
-                # Check if any of the selected lemmas are in stop words
-                if any(entry.lemma in self.stop_words for entry in selected_entries):
-                    return []
                 return selected_entries
             except (ValueError, IndexError):
                 print("Invalid input. Please try again.")
