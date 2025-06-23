@@ -55,6 +55,7 @@ class MorphClass(Enum):
     
     # Perfect patterns
     PERFECT_ACTIVE = "perf_act"  # Perfect active
+    PERFP_VOW = "perfp_vow"      # Perfect passive with vowel
     
     # Special forms
     MOVABLE_NU = "nu_movable"
@@ -88,6 +89,7 @@ class MorphClass(Enum):
     IZW = "izw"                    # For verbs ending in -ιζω
     PTW = "ptw"                    # For verbs ending in -πτω
     AINW = "ainw"                  # For verbs ending in -αινω
+    ANW = "anw"                    # For verbs ending in -ανω
     COMP_ONLY = "comp_only"        # Compound-only forms
     KLEHS_KLEOUS = "klehs_kleous"  # For nouns like Ἡρακλῆς
     OOS_OOU = "oos_oou"            # For contracted nouns like νοῦς (< νόος)
@@ -97,6 +99,7 @@ class MorphClass(Enum):
     A_HS = "a_hs"                  # For feminine α nouns
     AMI_SHORT = "ami_short"        # For -αμι verbs with short stem
     PRES_REDUPL = "pres_redupl"    # Present reduplication
+    AMI_PR = "ami_pr"            # For -αμι verbs, present stem (e.g., ἄγω)
     
     # Adding more classes from the test failures
     AOR_PASS = "aor_pass"          # Aorist passive
@@ -123,6 +126,11 @@ class MorphClass(Enum):
     # Adding remaining missing classes from the warnings
     E_SUPPL = "e_suppl"            # Epsilon supplemental forms
     LATER = "later"                # Later Greek forms
+    
+    WS_WN = "ws_wn"            # For nouns like ἀείνων
+    N_INFIX = "n_infix"        # For forms with n-infix
+    
+    RAW_PREVERB = "raw_preverb"      # For raw preverb forms (a preverb/prefix, often a preposition, identified in its uncombined, unprocessed form—typically before it is attached to a verb or fully analyzed as part of a compound verb)
     
     @classmethod
     def get_adjective_classes(cls) -> Set['MorphClass']:

@@ -274,6 +274,10 @@ class TextProcessor:
         elif Feature.MASC_FEM in entry.features:
             gender_article = "ὁ, ἡ"
         
+        # For indeclinable forms, just return the gender article without genitive
+        if Feature.INDECLINABLE in entry.features:
+            return gender_article
+        
         # Add genitive ending for 3rd declension nouns or irregular 1st/2nd declension
         gen_ending = ""
         
@@ -342,28 +346,28 @@ class TextProcessor:
         if MorphClass.ADJ_2_1_2 in entry.morph_classes:
             return "ος, ή, όν" if "ή," in str(entry.features) else "ός, ά, όν"
         elif MorphClass.ADJ_2_2 in entry.morph_classes:
-            return "ος, ον"
+            return "ον"  # Two-ending adjective: just show neuter ending
         elif MorphClass.ADJ_3_3 in entry.morph_classes:
             return "ής, ές"
         elif MorphClass.US_EIA_U in entry.morph_classes:
             return "ύς, εῖα, ύ"
         elif MorphClass.WN_ON in entry.morph_classes or MorphClass.WN_ON_COMP in entry.morph_classes:
-            return "ων, ον"
+            return "ον"  # Two-ending adjective: just show neuter ending
         
         # Fallback to endings if morphological class doesn't provide format
         elif lemma.endswith("ος"):
             # Adjectives with three endings (masc, fem, neut)
             if Feature.FEMININE in entry.features:
                 return "ος, ή, όν" if "ή," in str(entry.features) else "ός, ά, όν"
-            # Adjectives with two endings (masc/fem, neut)
+            # Adjectives with two endings (masc/fem, neut) - just show neuter
             else:
-                return "ος, ον"
+                return "ον"
         elif lemma.endswith("ης"):
             return "ής, ές"
         elif lemma.endswith("υς"):
             return "ύς, εῖα, ύ"
         elif lemma.endswith("ων"):
-            return "ων, ον"
+            return "ον"  # Two-ending adjective: just show neuter ending
         
         # Default format for other adjectives
         return None 

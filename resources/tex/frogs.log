@@ -1,0 +1,2461 @@
+This is LuaHBTeX, Version 1.21.0 (TeX Live 2025)  (format=lualatex 2025.3.8)  8 JUN 2025 20:50
+ restricted system commands enabled.
+ file:line:error style messages enabled.
+**/Users/ddriscoll/Documents/GitHub/greek-vocab-tool/resources/tex/frogs
+(/Users/ddriscoll/Documents/GitHub/greek-vocab-tool/resources/tex/frogs.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+Lua module: luaotfload 2024-12-03 v3.29 Lua based OpenType font support
+Lua module: lualibs 2023-07-13 v2.76 ConTeXt Lua standard libraries.
+Lua module: lualibs-extended 2023-07-13 v2.76 ConTeXt Lua libraries -- extended collection.
+luaotfload | conf : Root cache directory is "/Users/ddriscoll/Library/texlive/2025/texmf-var/luatex-cache/generic/names".
+luaotfload | init : Loading fontloader "fontloader-2023-12-28.lua" from kpse-resolved path "/usr/local/texlive/2025/texmf-dist/tex/luatex/luaotfload/fontloader-2023-12-28.lua".
+Lua-only attribute luaotfload@noligature = 1
+luaotfload | init : Context OpenType loader version 3.134
+Inserting `luaotfload.node_processor' in `pre_linebreak_filter'.
+Inserting `luaotfload.node_processor' in `hpack_filter'.
+Inserting `luaotfload.glyph_stream' in `glyph_stream_provider'.
+Inserting `luaotfload.define_font' in `define_font'.
+Lua-only attribute luaotfload_color_attribute = 2
+luaotfload | conf : Root cache directory is "/Users/ddriscoll/Library/texlive/2025/texmf-var/luatex-cache/generic/names".
+Inserting `luaotfload.harf.strip_prefix' in `find_opentype_file'.
+Inserting `luaotfload.harf.strip_prefix' in `find_truetype_file'.
+Removing  `luaotfload.glyph_stream' from `glyph_stream_provider'.
+Inserting `luaotfload.harf.glyphstream' in `glyph_stream_provider'.
+Inserting `luaotfload.harf.finalize_vlist' in `post_linebreak_filter'.
+Inserting `luaotfload.harf.finalize_hlist' in `hpack_filter'.
+Inserting `luaotfload.cleanup_files' in `wrapup_run'.
+Inserting `luaotfload.harf.finalize_unicode' in `finish_pdffile'.
+Inserting `luaotfload.glyphinfo' in `glyph_info'.
+Lua-only attribute luaotfload.letterspace_done = 3
+Inserting `luaotfload.aux.set_sscale_dimens' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.set_font_index' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.patch_cambria_domh' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.fixup_fontdata' in `luaotfload.patch_font_unsafe'.
+Inserting `luaotfload.aux.set_capheight' in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.set_xheight' in `luaotfload.patch_font'.
+Inserting `luaotfload.rewrite_fontname' in `luaotfload.patch_font'.
+Inserting `tracingstacklevels' in `input_level_string'. (/usr/local/texlive/2025/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2024/06/29 v1.4n Standard LaTeX document class
+(/usr/local/texlive/2025/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
+luaotfload | db : Font names database loaded from /Users/ddriscoll/Library/texlive/2025/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz)
+\c@part=\count194
+\c@section=\count195
+\c@subsection=\count196
+\c@subsubsection=\count197
+\c@paragraph=\count198
+\c@subparagraph=\count199
+\c@figure=\count266
+\c@table=\count267
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen140
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/fontspec/fontspec.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/l3packages/xparse/xparse.sty (/usr/local/texlive/2025/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2025-01-18 L3 programming layer (loader) 
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
+File: l3backend-luatex.def 2024-05-08 L3 backend support: PDF output (LuaTeX)
+\l__color_backend_stack_int=\count268
+Inserting `l3color' in `luaotfload.parse_color'.
+\l__pdf_internal_box=\box52
+))
+Package: xparse 2024-08-16 L3 Experimental document command parser
+)
+Package: fontspec 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
+Lua module: fontspec 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX (/usr/local/texlive/2025/texmf-dist/tex/latex/fontspec/fontspec-luatex.sty
+Package: fontspec-luatex 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
+\l__fontspec_script_int=\count269
+\l__fontspec_language_int=\count270
+\l__fontspec_strnum_int=\count271
+\l__fontspec_tmp_int=\count272
+\l__fontspec_tmpa_int=\count273
+\l__fontspec_tmpb_int=\count274
+\l__fontspec_tmpc_int=\count275
+\l__fontspec_em_int=\count276
+\l__fontspec_emdef_int=\count277
+\l__fontspec_strong_int=\count278
+\l__fontspec_strongdef_int=\count279
+\l__fontspec_tmpa_dim=\dimen141
+\l__fontspec_tmpb_dim=\dimen142
+\l__fontspec_tmpc_dim=\dimen143
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (/usr/local/texlive/2025/texmf-dist/tex/latex/polyglossia/polyglossia.sty
+Package: polyglossia 2025/01/31 v2.4 Modern multilingual typesetting with XeLaTeX and LuaLaTeX
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2025/02/11 v2.5l e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count280
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+)
+Lua module: polyglossia 2013/05/11 v1.3 Polyglossia
+\l_xpg_alias_keyvals_int=\count281
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/polyglossia/gloss-latex.ldf
+File: gloss-latex.ldf polyglossia: module for default language
+)
+
+Package polyglossia Info: Setting LuaTeX font renderer to Harfbuzz
+
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+) (/usr/local/texlive/2025/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count282
+\Gm@cntv=\count283
+\c@Gm@tempcnt=\count284
+\Gm@bindingoffset=\dimen144
+\Gm@wd@mp=\dimen145
+\Gm@odd@mp=\dimen146
+\Gm@even@mp=\dimen147
+\Gm@layoutwidth=\dimen148
+\Gm@layoutheight=\dimen149
+\Gm@layouthoffset=\dimen150
+\Gm@layoutvoffset=\dimen151
+\Gm@dimlist=\toks18
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2022/12/04 v6.7b set line spacing
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/parskip/parskip.sty
+Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+))) (/usr/local/texlive/2025/texmf-dist/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2025/01/04 v2.17 Sectioning titles
+\ttl@box=\box53
+\beforetitleunit=\skip51
+\aftertitleunit=\skip52
+\ttl@plus=\dimen152
+\ttl@minus=\dimen153
+\ttl@toksa=\toks19
+\titlewidth=\dimen154
+\titlewidthlast=\dimen155
+\titlewidthfirst=\dimen156
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2024/09/14 v1.9i multicolumn formatting (FMi)
+\c@tracingmulticols=\count285
+\mult@box=\box54
+\multicol@leftmargin=\dimen157
+\c@unbalance=\count286
+\c@collectmore=\count287
+\doublecol@number=\count288
+\multicoltolerance=\count289
+\multicolpretolerance=\count290
+\full@width=\dimen158
+\page@free=\dimen159
+\premulticols=\dimen160
+\postmulticols=\dimen161
+\multicolsep=\skip53
+\multicolbaselineskip=\skip54
+\partial@page=\box55
+\last@line=\box56
+\mc@boxedresult=\box57
+\maxbalancingoverflow=\dimen162
+\mult@rightbox=\box58
+\mult@grightbox=\box59
+\mult@firstbox=\box60
+\mult@gfirstbox=\box61
+\@tempa=\box62
+\@tempa=\box63
+\@tempa=\box64
+\@tempa=\box65
+\@tempa=\box66
+\@tempa=\box67
+\@tempa=\box68
+\@tempa=\box69
+\@tempa=\box70
+\@tempa=\box71
+\@tempa=\box72
+\@tempa=\box73
+\@tempa=\box74
+\@tempa=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\@tempa=\box95
+\@tempa=\box96
+\@tempa=\box97
+\c@minrows=\count291
+\c@columnbadness=\count292
+\c@finalcolumnbadness=\count293
+\last@try=\dimen163
+\multicolovershoot=\dimen164
+\multicolundershoot=\dimen165
+\mult@nat@firstbox=\box98
+\colbreak@box=\box99
+\mc@col@check@num=\count294
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/array.sty
+Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
+\col@sep=\dimen166
+\ar@mcellbox=\box100
+\extrarowheight=\dimen167
+\NC@list=\toks20
+\extratabsurround=\skip55
+\backup@length=\skip56
+\ar@cellbox=\box101
+)
+\TX@col@width=\dimen168
+\TX@old@table=\dimen169
+\TX@old@col=\dimen170
+\TX@target=\dimen171
+\TX@delta=\dimen172
+\TX@cols=\count295
+\TX@ftn=\toks21
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/sauerj/parcolumns.sty
+Package: parcolumns 2004/11/25 v1.2 Typeset multiple parallel columns
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/sauerj/processkv.sty
+Package: processkv 2004/08/09 v1.0.1 process key=value lists
+)
+\pc@columnctr=\count296
+\pc@columncount=\count297
+\pc@everypar=\toks22
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2025/02/11 v3.2a Micro-typographical refinements (RS)
+\MT@toks=\toks23
+\MT@tempbox=\box102
+\MT@count=\count298
+LaTeX Info: Redefining \noprotrusionifhmode on input line 1087.
+LaTeX Info: Redefining \leftprotrusion on input line 1088.
+\MT@prot@toks=\toks24
+LaTeX Info: Redefining \rightprotrusion on input line 1107.
+LaTeX Info: Redefining \textls on input line 1449.
+\MT@outer@kern=\dimen173
+LaTeX Info: Redefining \microtypecontext on input line 2053.
+LaTeX Info: Redefining \textmicrotypecontext on input line 2070.
+\MT@listname@count=\count299
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/microtype-luatex.def
+File: microtype-luatex.def 2025/02/11 v3.2a Definitions specific to luatex (RS)
+Lua module: microtype 2025/02/11 v3.2a microtype module.
+Module microtype Info: overwriting function `keepligature' on input line 63
+LaTeX Info: Redefining \lsstyle on input line 779.
+LaTeX Info: Redefining \lslig on input line 779.
+\MT@outer@space=\skip57
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2025/02/11 v3.2a microtype main configuration file (RS)
+)
+LaTeX Info: Redefining \microtypesetup on input line 3065.
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/polyglossia/gloss-english.ldf
+File: gloss-english.ldf polyglossia: module for English
+)
+
+Package polyglossia Info: Default language is english
+
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/polyglossia/gloss-greek.ldf
+File: gloss-greek.ldf polyglossia: module for Greek
+Module polyglossia Info: Language data for greek
+(polyglossia)            hyphenation	
+(polyglossia)            lefthyphenmin	1
+(polyglossia)            loader	loadhyph-el-polyton.tex
+(polyglossia)            patterns	hyph-el-polyton.pat.txt
+(polyglossia)            righthyphenmin	1
+(polyglossia)            synonyms	polygreek on input line 20
+Module polyglossia Info: Language greek was not yet loaded; created with id 2 on input line 20
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/polyglossia/xgreek-fixes.def)
+Module polyglossia Info: Language data for monogreek
+(polyglossia)            hyphenation	
+(polyglossia)            lefthyphenmin	1
+(polyglossia)            loader	loadhyph-el-monoton.tex
+(polyglossia)            patterns	hyph-el-monoton.pat.txt
+(polyglossia)            righthyphenmin	1
+(polyglossia)            synonyms	 on input line 154
+Module polyglossia Info: Language monogreek was not yet loaded; created with id 3 on input line 154
+Module polyglossia Info: Language data for ancientgreek
+(polyglossia)            hyphenation	
+(polyglossia)            lefthyphenmin	1
+(polyglossia)            loader	loadhyph-grc.tex
+(polyglossia)            patterns	hyph-grc.pat.txt
+(polyglossia)            righthyphenmin	1
+(polyglossia)            synonyms	 on input line 154
+Module polyglossia Info: Language ancientgreek was not yet loaded; created with id 4 on input line 154
+\@attic@num=\count300
+)
+luaotfload | cache : Lookup cache loaded from /Users/ddriscoll/Library/texlive/2025/texmf-var/luatex-cache/generic/names/luaotfload-lookup-cache.luc.
+
+Package fontspec Info: 
+(fontspec)             Font family 'LinuxLibertineO(0)' created for font
+(fontspec)             'Linux Libertine O' with options
+(fontspec)             [Renderer=Harfbuzz,Script=Greek].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.: <->"name:Linux
+(fontspec)             Libertine O:mode=harf;script=grek;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: <->"name:Linux
+(fontspec)             Libertine O:mode=harf;script=grek;language=dflt;+smcp;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.: <->"name:Linux
+(fontspec)             Libertine O/B:mode=harf;script=grek;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
+(fontspec)             <->"name:Linux Libertine
+(fontspec)             O/B:mode=harf;script=grek;language=dflt;+smcp;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.: <->"name:Linux
+(fontspec)             Libertine O/I:mode=harf;script=grek;language=dflt;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
+(fontspec)             <->"name:Linux Libertine
+(fontspec)             O/I:mode=harf;script=grek;language=dflt;+smcp;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.: <->"name:Linux
+(fontspec)             Libertine O/BI:mode=harf;script=grek;language=dflt;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
+(fontspec)             <->"name:Linux Libertine
+(fontspec)             O/BI:mode=harf;script=grek;language=dflt;+smcp;"
+
+
+
+LaTeX Warning: Unused global option(s):
+    [13pt].
+
+No file frogs.aux.
+
+\openout1 = frogs.aux
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+
+Package fontspec Info: 
+(fontspec)             Adjusting the maths setup (use [no-math] to avoid
+(fontspec)             this).
+
+\symlegacymaths=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 56.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 56.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 56.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 56.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 56.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 56.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 56.
+LaTeX Font Info:    Redeclaring math accent \check on input line 56.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 56.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 56.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 56.
+LaTeX Font Info:    Redeclaring math symbol \colon on input line 56.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 56.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 56.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 56.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 56.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 56.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 56.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 56.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 56.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 56.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 56.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 56.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 56.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 56.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `normal' on input line 56.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 56.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `bold' on input line 56.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 56.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 56.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 56.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 56.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 56.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 56.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 56.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 56.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 56.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 56.
+*geometry* driver: auto-detecting
+*geometry* detected driver: luatex
+*geometry* verbose mode - [ preamble ] result:
+* driver: luatex
+* paper: custom
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(21.68121pt, 361.35pt, 50.58878pt)
+* v-part:(T,H,B)=(36.135pt, 578.16pt, 36.135pt)
+* \paperwidth=433.62pt
+* \paperheight=650.43pt
+* \textwidth=361.35pt
+* \textheight=578.16pt
+* \oddsidemargin=-50.58878pt
+* \evensidemargin=-50.58878pt
+* \topmargin=-73.135pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Info: Redefining \microtypecontext on input line 56.
+Package microtype Info: Applying patch `item' on input line 56.
+Package microtype Info: Applying patch `toc' on input line 56.
+Package microtype Info: Applying patch `eqnum' on input line 56.
+Package microtype Info: Applying patch `footnote' on input line 56.
+Package microtype Info: Applying patch `verbatim' on input line 56.
+LaTeX Info: Redefining \microtypesetup on input line 56.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `alltext-nott'.
+LaTeX Info: Redefining \showhyphens on input line 56.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of spacing.
+Package microtype Info: No adjustment of kerning.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/mt-LatinModernRoman.cfg
+File: mt-LatinModernRoman.cfg 2021/02/21 v1.1 microtype config. file: Latin Modern Roman (RS)
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `LinuxLibertineO' (encoding: TU).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+Inserting `luaotfload.letterspace' in `pre_linebreak_filter'.
+Inserting `luaotfload.letterspace' in `hpack_filter'.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 61.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 61.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
+)
+
+[1
+
+{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 97--128
+\TU/LinuxLibertineO(0)/b/n/9 δαί\TU/LinuxLibertineO(0)/m/n/9 : colloquial form of δή, used after
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--128
+\TU/LinuxLibertineO(0)/b/n/9 καθ-αιρέω\TU/LinuxLibertineO(0)/m/n/9 : to take down (i.e. off one's
+ []
+
+
+Underfull \hbox (badness 7540) in paragraph at lines 97--128
+\TU/LinuxLibertineO(0)/b/n/9 μετα-βάλλω\TU/LinuxLibertineO(0)/m/n/9 : move over (prob. from one
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--128
+
+ []
+
+\pc@column@1=\box103
+\pc@column@width@1=\dimen174
+\pc@column@2=\box104
+\pc@column@width@2=\dimen175
+Package parcolumns Info: Width of column 1 set to 21.59999pt on input line 135.
+Package parcolumns Info: Width of column 2 set to 158.10643pt on input line 135.
+
+Overfull \hbox (4.03142pt too wide) detected at line 140
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 140
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 140
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 140
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 140
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 140
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 146
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 146
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 146
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 146
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 151--151
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 151
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 151
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 156--156
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 156
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 156
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 156
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 156
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 161--161
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 161
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 161
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 161
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 161
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--165
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 165
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 165
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 171--171
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 171
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 171
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 171
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 171
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 171
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 171
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 171
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 176
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 176
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 176
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 181--181
+\TU/LinuxLibertineO(0)/b/n/9 ἀποπαρδήσομαι\TU/LinuxLibertineO(0)/m/n/9 : fut. ἀπο-πέρ-δο-μαι.
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 181
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 181
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 181
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 181
+ | []
+ []
+
+
+Underfull \hbox (badness 6268) in paragraph at lines 185--185
+[]\TU/LinuxLibertineO(0)/b/n/9 πλήν γ᾽ ὅταν μέλλω 'ξε-μεῖν\TU/LinuxLibertineO(0)/m/n/9 : \TU/LinuxLibertineO(0)/m/it/9 except
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 185
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 185
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 190--190
+[]\TU/LinuxLibertineO(0)/b/n/9 μη-δὲν ὧν-περ\TU/LinuxLibertineO(0)/m/n/9 : μη-δὲν του-τῶν ἅπερ...
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 190--190
+\TU/LinuxLibertineO(0)/b/n/9 Φρύνιχος... Λύ-κις... κἀ-μει-ψίας;\TU/LinuxLibertineO(0)/m/n/9 :
+ []
+
+
+Underfull \hbox (badness 5681) in paragraph at lines 190--190
+\TU/LinuxLibertineO(0)/m/n/9 three comic poets and competitors of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 190--190
+\TU/LinuxLibertineO(0)/m/n/9 Aristophanes. Phrynichus' \TU/LinuxLibertineO(0)/m/it/9 Muses \TU/LinuxLibertineO(0)/m/n/9 took
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 190--190
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 190
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 190
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 190
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 190
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 190
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 190
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 190
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 190
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 194--194
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 194
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 194
+ | []
+ []
+
+
+
+[2]
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 230--251
+
+ []
+
+Package parcolumns Info: Width of column 1 set to 21.59999pt on input line 258.
+Package parcolumns Info: Width of column 2 set to 158.10643pt on input line 258.
+
+Underfull \hbox (badness 10000) in paragraph at lines 265--265
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 265
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 265
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 265
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 265
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 265
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 265
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 265
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 269--269
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 269
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 269
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 269
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 269
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 269
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 269
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 273--273
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 273
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 273
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 273
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 273
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 273
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 273
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 277--277
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 277
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 277
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 277
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 277
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 277
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 282--282
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 282
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 282
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 282
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 282
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 282
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 282
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 282
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 287--287
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 287
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 287
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 287
+ | []
+ []
+
+
+Underfull \hbox (badness 7151) in paragraph at lines 291--291
+[]\TU/LinuxLibertineO(0)/b/n/9 τα-λαι-πω-ροῖτο... φέ-ροι\TU/LinuxLibertineO(0)/m/n/9 : Normally the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 291--291
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 291
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 291
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 291
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 291
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 291
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 291
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 291
+ | []
+ []
+
+
+Underfull \hbox (badness 6110) in paragraph at lines 296--296
+[]\TU/LinuxLibertineO(0)/b/n/9 γὰρ\TU/LinuxLibertineO(0)/m/n/9 : in abrupt questions, \TU/LinuxLibertineO(0)/m/it/9 what, why\TU/LinuxLibertineO(0)/m/n/9 ;
+ []
+
+
+Underfull \hbox (badness 5970) in paragraph at lines 296--296
+\TU/LinuxLibertineO(0)/m/n/9 argumentation about the active/passive
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 296--296
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 296
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 296
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 296
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 296
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 296
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 296
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 296
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 296
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 300--300
+\TU/LinuxLibertineO(0)/b/n/9 βαρέως πάνυ\TU/LinuxLibertineO(0)/m/n/9 : \TU/LinuxLibertineO(0)/m/it/9 [carrying them] very
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 300
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 300
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 300
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 300
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 300
+ | []
+ []
+
+
+/Users/ddriscoll/Documents/GitHub/greek-vocab-tool/resources/tex/frogs.tex:301: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.301 }
+       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+/Users/ddriscoll/Documents/GitHub/greek-vocab-tool/resources/tex/frogs.tex:301: Extra }, or forgotten \endgroup.
+<recently read> }
+                 
+l.301 }
+       
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 303
+[]| []
+ []
+
+
+/Users/ddriscoll/Documents/GitHub/greek-vocab-tool/resources/tex/frogs.tex:304: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.304 }
+       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+/Users/ddriscoll/Documents/GitHub/greek-vocab-tool/resources/tex/frogs.tex:304: Extra }, or forgotten \endgroup.
+<recently read> }
+                 
+l.304 }
+       
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 309--309
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 309
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 309
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 309
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 309
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 309
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 313
+[]| []
+ []
+
+
+
+[4]
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 354--382
+
+ []
+
+Package parcolumns Info: Width of column 1 set to 21.59999pt on input line 389.
+Package parcolumns Info: Width of column 2 set to 158.10643pt on input line 389.
+
+Underfull \hbox (badness 10000) in paragraph at lines 394--394
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 394
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 394
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 398--398
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 398
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 398
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 398
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 398
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 403--403
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 403
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 403
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 403
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 403
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 403
+ | []
+ []
+
+
+Underfull \hbox (badness 5578) in paragraph at lines 407--407
+\TU/LinuxLibertineO(0)/m/n/9 building. After this point there is no
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 407--407
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 407
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 407
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 407
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 407
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 407
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 407
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 411--411
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 411
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 411
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 411
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 415--415
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 415
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 415
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 415
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 420--420
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 420
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 420
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 420
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 420
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 420
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 424--424
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 424
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 424
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 424
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 424
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 428--428
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 428
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 428
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 428
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 428
+ | []
+ []
+
+
+
+[6]
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 466--496
+\TU/LinuxLibertineO(0)/b/n/9 Ἀνδρομέδα, ἡ\TU/LinuxLibertineO(0)/m/n/9 : Andromeda; heroine, lost
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 466--496
+
+ []
+
+Package parcolumns Info: Width of column 1 set to 21.59999pt on input line 503.
+Package parcolumns Info: Width of column 2 set to 158.10643pt on input line 503.
+
+Underfull \hbox (badness 10000) in paragraph at lines 509--509
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 509
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 509
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 509
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 509
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 514--514
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 514
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 514
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 514
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 514
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 514
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 514
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 518--518
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 518
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 518
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 523--523
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 523
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 523
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 523
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 528--528
+\TU/LinuxLibertineO(0)/m/n/9 (Dover), \TU/LinuxLibertineO(0)/m/it/9 you can't imagine how,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 528--528
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 528
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 528
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 528
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 528
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 528
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 528
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 532
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 532
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 536
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 536
+ | []
+ []
+
+
+
+[8]
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 573--596
+
+ []
+
+Package parcolumns Info: Width of column 1 set to 21.59999pt on input line 603.
+Package parcolumns Info: Width of column 2 set to 158.10643pt on input line 603.
+
+Underfull \hbox (badness 10000) in paragraph at lines 608--608
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 608
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 608
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 608
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 614--614
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 614
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 614
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 614
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 614
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 614
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 614
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 618--618
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 618
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 618
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 624--624
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 624
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 624
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 624
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 624
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 624
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 624
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 624
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 624
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 628
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 628
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 632
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 632
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 632
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 636
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 636
+ | []
+ []
+
+
+
+[10]
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 671--692
+
+ []
+
+Package parcolumns Info: Width of column 1 set to 21.59999pt on input line 699.
+Package parcolumns Info: Width of column 2 set to 158.10643pt on input line 699.
+
+Underfull \hbox (badness 10000) in paragraph at lines 705--705
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 705
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 705
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 705
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 705
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 711--711
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 711
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 711
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 711
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 711
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 711
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 715--715
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 715
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 715
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 715
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 719--719
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 719
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 719
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 723--723
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 723
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 723
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 723
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 723
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 727--727
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 727
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 727
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 732
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 732
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 732
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 736--736
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 736
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 736
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 736
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 736
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 740--740
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 740
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 740
+ | []
+ []
+
+
+
+[12]
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 779--811
+\TU/LinuxLibertineO(0)/b/n/9 μυρίος, ός, ά, όν\TU/LinuxLibertineO(0)/m/n/9 : numberless, countless,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 779--811
+\TU/LinuxLibertineO(0)/b/n/9 Πυθάγγελος, ὁ\TU/LinuxLibertineO(0)/m/n/9 : Pythangelus, tragedian,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 779--811
+
+ []
+
+Package parcolumns Info: Width of column 1 set to 21.59999pt on input line 818.
+Package parcolumns Info: Width of column 2 set to 158.10643pt on input line 818.
+
+Underfull \hbox (badness 10000) in paragraph at lines 823--823
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 823
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 823
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 827--827
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 827
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 827
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 827
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 831--831
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 831
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 831
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 831
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 835--835
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 835
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 835
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 835
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 835
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 835
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 835
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 835
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 835
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 839--839
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 839
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 839
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 839
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 839
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 839
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 839
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 843--843
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 843
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 843
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 843
+ | []
+ []
+
+
+
+[14]
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 880--910
+
+ []
+
+Package parcolumns Info: Width of column 1 set to 21.59999pt on input line 917.
+Package parcolumns Info: Width of column 2 set to 158.10643pt on input line 917.
+
+Underfull \hbox (badness 10000) in paragraph at lines 924--924
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 924
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 924
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 924
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 924
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 924
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 924
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 928--928
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 928
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 928
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 928
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 932--932
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 932
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 932
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 932
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 932
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 932
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 936--936
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 936
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 936
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 936
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 936
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 936
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 936
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 940--940
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 940
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 940
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 944--944
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 944
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 944
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 944
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 944
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 948--948
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 948
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 948
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 948
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 953
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 953
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 953
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 953
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 957--957
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 957
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 957
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 957
+ | []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 962--962
+
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 962
+[]| []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 962
+ | []
+ []
+
+
+Overfull \hbox (4.03142pt too wide) detected at line 962
+ | []
+ []
+
+
+
+[16] (./frogs.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+ ***********
+)
+
+Here is how much of LuaTeX's memory you used:
+ 7587 strings out of 475506
+ 125056,794899 words of node,token memory allocated
+ 454 words of node memory still in use:
+   4 hlist, 1 vlist, 1 rule, 2 glue, 3 kern, 1 glyph, 5 attribute, 55 glue_spec, 5 attribute_list, 1 write nodes
+   avail lists: 1:4,2:827,3:242,4:71,5:708,6:78,7:7086,8:3,9:919,10:14,11:168
+ 30529 multiletter control sequences out of 65536+600000
+ 45 fonts using 14875743 bytes
+ 79i,8n,91p,1254b,621s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2025/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RB.otf></usr/local/texlive/2025/texmf-dist/fonts/opentype/public/libertine/LinLibertine_R.otf></usr/local/texlive/2025/texmf-dist/fonts/opentype/public/libertine/LinLibertine_RI.otf>
+Output written on frogs.pdf (16 pages, 92646 bytes).
+
+PDF statistics: 84 PDF objects out of 1000 (max. 8388607)
+ 52 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 131072)
+ 1 words of extra memory for PDF output out of 10000 (max. 100000000)
+

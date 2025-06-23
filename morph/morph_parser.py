@@ -57,7 +57,53 @@ class MorphParser:
             print(f"Warning: {e} in word with features {features} and morph_classes {morph_classes}")
             raise
 
+    def _handle_special_words(self, original_word: str) -> List[MorphEntry]:
+        """Handle special words that Morpheus doesn't parse correctly.
+        
+        Args:
+            original_word: The original word (in Unicode or Beta Code)
+            
+        Returns:
+            List of MorphEntry objects for special words, empty list if not a special word
+        """
+        # Normalize the word to check against our special cases
+        word_normalized = original_word.strip()
+        
+        # Handle 'ἢ' (or/than) - check both Unicode and Beta Code forms
+        if word_normalized in ['ἢ', 'h)\\']:
+            # Use hardcoded definition since morpheus/definition_loader returns wrong info
+            lemma = 'ἤ'  # Standard lemma form
+            short_definition = "or, than"
+            
+            return [MorphEntry(
+                original=original_word,
+                part_of_speech=PartOfSpeech.CONJUNCTION,
+                lemma=lemma,
+                features=set(),  # Conjunctions typically have no morphological features
+                morph_classes=set(),  # Conjunctions typically have no morphological classes
+                short_definition=short_definition
+            )]
+        
+        return []
+
     def parse_word(self, word: str, verbose=False, ignore_case=False, ignore_accent=False) -> List[MorphEntry]:
+        # Start with normal Morpheus parsing
+        morpheus_results = self._parse_with_morpheus(word, verbose, ignore_case, ignore_accent)
+        
+        # Check for special words and add additional entries
+        special_entries = self._handle_special_words(word)
+        
+        # Combine results - special entries are added to morpheus results
+        all_results = morpheus_results + special_entries
+        
+        if verbose or self.debug:
+            if special_entries:
+                print(f"DEBUG: Added {len(special_entries)} special entries for '{word}'")
+        
+        return all_results
+
+    def _parse_with_morpheus(self, word: str, verbose=False, ignore_case=False, ignore_accent=False) -> List[MorphEntry]:
+        """Run the normal Morpheus parsing logic."""
         try:
             # Check for various apostrophe characters that might appear in Unicode text
             apostrophe_chars = ["'", "ʼ", "'", "᾽", "᾿", "ʻ", "`"]

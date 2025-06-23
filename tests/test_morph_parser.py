@@ -467,6 +467,38 @@ class TestMorphParser(unittest.TestCase):
         # Print the definition for verification
         print(f"Γαῖα definition: {gaia_entry.short_definition}")
 
+    def test_special_word_eta_conjunction(self):
+        """Test parsing the special word 'ἢ' (or/than)"""
+        # Test Unicode form
+        results = self.parser.parse_word("ἢ")
+        self.assertTrue(len(results) >= 3, f"Expected at least 3 results but got {len(results)}")
+        
+        # Check that we have the conjunction entry we added
+        conj_entry = next((entry for entry in results if entry.part_of_speech == PartOfSpeech.CONJUNCTION), None)
+        self.assertIsNotNone(conj_entry, "Failed to find conjunction entry")
+        self.assertEqual(conj_entry.lemma, "ἤ")
+        self.assertEqual(conj_entry.short_definition, "or, than")
+        self.assertEqual(conj_entry.original, "ἢ")
+        
+        # Check that we also have the original Morpheus entries
+        noun_entries = [entry for entry in results if entry.part_of_speech == PartOfSpeech.NOUN]
+        self.assertTrue(len(noun_entries) >= 2, f"Expected at least 2 noun entries but got {len(noun_entries)}")
+        
+        # Verify the Morpheus entries have the expected lemmas
+        lemmas = {entry.lemma for entry in noun_entries}
+        self.assertTrue("ἤ1" in lemmas or "ἤ2" in lemmas, f"Expected ἤ1 or ἤ2 in lemmas but got {lemmas}")
+        
+        # Test Beta Code form
+        results_beta = self.parser.parse_word("h)\\")
+        self.assertTrue(len(results_beta) >= 3, f"Expected at least 3 results but got {len(results_beta)}")
+        
+        # Check conjunction entry for Beta Code
+        conj_entry_beta = next((entry for entry in results_beta if entry.part_of_speech == PartOfSpeech.CONJUNCTION), None)
+        self.assertIsNotNone(conj_entry_beta, "Failed to find conjunction entry in Beta Code results")
+        self.assertEqual(conj_entry_beta.lemma, "ἤ")
+        self.assertEqual(conj_entry_beta.short_definition, "or, than")
+        self.assertEqual(conj_entry_beta.original, "h)\\")
+
 class TestFrogsOpening(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

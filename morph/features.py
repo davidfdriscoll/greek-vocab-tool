@@ -99,6 +99,9 @@ class Feature(Enum):
     INDEFINITE_RELATIVE = "indef_rel_pron"  # For indefinite relative pronouns
     ALPHABETIC = "alphabetic"  # For alphabetic characters
     
+    # Degree features
+    COMPARATIVE = "comp"     # For comparative degree
+    
     # Dialect features
     EPIC = "epic"        # For epic dialect forms
     DORIC = "doric"      # For Doric dialect forms
@@ -117,6 +120,8 @@ class Feature(Enum):
     RARE = "rare"           # For rare forms
     APOCOPE = "apocope"     # For forms with apocope
     PROSE = "prose"         # For prose forms
+    
+    REDUPL = "redupl"           # For reduplication feature
     
     @classmethod
     def from_str(cls, feature: str) -> 'Feature':

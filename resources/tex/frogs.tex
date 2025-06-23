@@ -1,0 +1,968 @@
+\documentclass[13pt]{article}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage{multicol}
+\usepackage{tabularx}
+\usepackage{parcolumns}
+\usepackage{microtype}
+
+\setmainlanguage{english}
+\setotherlanguage[variant=ancient]{greek}
+\newfontfamily\greekfont[Script=Greek]{Linux Libertine O} % Pre-installed on Overleaf
+
+\geometry{
+  paperwidth=6in,
+  paperheight=9in,
+  top=0.5in,
+  bottom=0.5in,
+  left=0.3in,
+  right=0.7in
+}
+\titleformat{\section}{\normalfont\large\bfseries}{}{0pt}{}
+
+\newcommand{\vocabentry}[2]{\textbf{#1}: #2\vspace{0.0em}\\}
+\newcommand{\glossitem}[2]{\textbf{\textgreek{#1}}: \textit{#2}}
+% Greek poetry line macro with optional line number
+\newcommand{\poemline}[2]{%
+  \ifx&#1&%
+    {\hspace{2em}} & {\Large\begin{greek}#2\end{greek}} \\
+  \else
+    {\small #1} & {\Large\begin{greek}#2\end{greek}} \\
+  \fi
+}
+
+% For pure literal glosses
+\newcommand{\glosstxt}[2]{\textbf{\textgreek{#1}}: \textit{#2}}
+
+% For pure grammatical/explanatory glosses
+\newcommand{\glossexpl}[2]{\textbf{\textgreek{#1}}: \textup{#2}}
+
+% For mixed glosses (manual control of italics)
+\newcommand{\glossmix}[2]{\textbf{\textgreek{#1}}: \textup{#2}}
+
+% One full line of commentary: line number + multiple glosses
+\newcommand{\glossline}[2]{%
+  \colchunk[1]{\textbf{#1}}%
+  \colchunk[2]{#2}%
+  \colplacechunks
+}
+
+
+\date{}
+\begin{document}
+\Large
+\begin{greek}
+\begin{spacing}{1.5}
+
+\noindent\textit{\MakeUppercase{\textls[200]{Ξανθίας}}}
+
+\begin{tabularx}{\textwidth}{@{}lXr@{}}
+  \phantom{Ξα.} & Εἴπω τι τῶν εἰωθότων, ὦ δέσποτα, & \\
+  \phantom{Ξα.} & ἐφ’ οἷς ἀεὶ γελῶσιν οἱ θεώμενοι; & \\
+\end{tabularx}
+
+\vspace{1em}
+
+\noindent\textit{\MakeUppercase{\textls[200]{Διόνυσος}}}
+
+\begin{tabularx}{\textwidth}{@{}lXr@{}}
+  & νὴ τὸν Δί’ ὅ τι βούλει γε, πλὴν “πιέζομαι”. & \\
+  & τοῦτο δὲ φύλαξαι· πάνυ γάρ ἐστ’ ἤδη χολή. & \\
+  \textit{Ξα.} & μηδ’ ἕτερον ἀστεῖόν τι; & \\
+  \textit{Δι.} & \hspace*{10em}πλήν γ’ “ὡς θλίβομαι”. & 5 \\
+  \textit{Ξα.} & τί δαί; τὸ πάνυ γέλοιον εἴπω; & \\
+  \textit{Δι.} & \hspace*{12.5em}νὴ Δία & \\
+  & θαρρῶν γε· μόνον ἐκεῖν’ ὅπως μὴ ’ρεῖς, & \\
+  \textit{Ξα.} & \hspace*{16em}τὸ τί; & \\
+  \textit{Δι.} & μεταβαλλόμενος τἀνάφορον ὅτι χεζητιᾷς. & \\
+  \textit{Ξα.} & μηδ᾽ ὅτι τοσοῦτον ἄχθος ἐπ᾽ ἐμαυτῷ φέρων, & \\
+  & εἰ μὴ καθαιρήσει τις, ἀποπαρδήσομαι; & 10 \\
+  \textit{Δι.} & μὴ δῆθ᾽, ἱκετεύω, πλήν γ᾽ ὅταν μέλλω 'ξεμεῖν. & \\
+  \textit{Ξα.} & τί δῆτ᾽ ἔδει με ταῦτα τὰ σκεύη φέρειν, & \\
+  & εἴπερ ποιήσω μηδὲν ὧνπερ Φρύνιχος & \\
+  & εἴωθε ποιεῖν καὶ Λύκις κἀμειψίας; & \\
+  
+\end{tabularx}
+
+\end{spacing}
+
+\newpage
+
+\begin{multicols}{2}
+\small % roughly 9pt
+\vocabentry{ἄχθος, εος, τό}{a weight, burden, load}
+\vocabentry{ἀεί}{(adv.) always, for ever}
+\vocabentry{Ἀμειψίας, ὁ}{Ameipsias, comic poet}
+\vocabentry{ἀνά-φορον, τό}{a pole}
+\vocabentry{ἀπο-πέρδομαι}{fart}
+\vocabentry{ἀστεῖος, ός, ά, όν}{of the town; urbane; witty}
+\vocabentry{γέλοιος, ός, ά, όν}{causing laughter, laughable, funny}
+\vocabentry{γελάω}{to laugh}
+\vocabentry{δαί}{colloquial form of δή, used after interrogatives}
+\vocabentry{δεῖ}{it is necessary}
+\vocabentry{δεσπότης, ὁ}{a master, lord, the master of the house}
+\vocabentry{δῆτα}{particle, more emphatic δή; τί δῆτα what then? μῆ δῆτα, just don't...}
+\vocabentry{ἔθω}{be accustomed (see also εἴωθα)}
+\vocabentry{ἐμαυτοῦ}{of me, of myself}
+\vocabentry{ἐξ-εμέω}{to vomit forth, disgorge}
+\vocabentry{ἕτερος, ός, ά, όν}{the one; the other (of two)}
+\vocabentry{Ζεύς, ος, ὁ (acc. Δία)}{Zeus}
+\vocabentry{θαρσέω}{to be of good courage, take courage}
+\vocabentry{θεάομαι}{to look on, gaze at, view, behold}
+\vocabentry{θλίβω}{to press, squeeze, pinch}
+\vocabentry{καθ-αιρέω}{to take down (i.e. off one's shoulders)}
+\vocabentry{Λύκις, ιδος, ἡ}{Lycis, a comic poet}
+\vocabentry{μετα-βάλλω}{move over (prob. from one shoulder to the other)}
+\vocabentry{νή}{(yes) by.., with acc.;  with γε 'yes indeed'}
+\vocabentry{πιέζω}{to press, squeeze; oppress, distress}
+\vocabentry{πλήν}{except}
+\vocabentry{σκεῦος, εος, τό}{a vessel; bag, baggage}
+\vocabentry{τοσοῦτος, ὁ}{so large, so tall}
+\vocabentry{φυλάσσω}{to keep guard; (med.) avoid}
+\vocabentry{χεζητιάω}{(<χέζω to shit) need to shit}
+\vocabentry{χολή, ἡ}{gall, bile; (cause of) gall, bile}
+\end{multicols}
+
+\vspace{-1.5em}
+\noindent\rule{\linewidth}{0.4pt}
+\vspace{-2em}
+
+\begin{multicols}{2}
+\begin{parcolumns}[colwidths={1=1.5em, 2=0.9\linewidth}]{2}
+\small
+
+\glossline{}{%
+  \glossmix{}{Two actors enter. One (Dionsyus) is dressed in a full-length yellow dress with a lion-skin and holds a club. The other (Xanthias), his slave, is sitting on a donkey and has a lot of luggage hanging from a pole over his shoulders. }
+}
+
+\glossline{1}{%
+  \glossmix{}{"Master, should I say one of the usual things that the spectators always laugh at?"}
+  \glossmix{Εἴπω}{Deliberative subj., \textit{should I say}}\\
+  \glossmix{εἰωθότων}{< εἴωθα}%
+}
+
+\glossline{3}{%
+  \glossmix{ὅ τι}{ὅς τις, whatever (you like)}\\
+  
+}
+
+\glossline{4}{%
+  \glossmix{φύλαξαι}{aor. impv. mid. φυλάσσω}\\
+  \glossmix{πάνυ... ἐστ’ ἤδη χολή}{\textit{it's entirely by now a source of bile, makes me sick}}\\
+}
+
+\glossline{5}{%
+    \glossmix{μηδ’}{μή at the start of a question expects a negative response.}\\
+    \glossmix{ὡς}{exclamatory, \textit{how}}\\
+}
+
+\glossline{6}{%
+    \glossmix{τὸ πάνυ γέλοιον}{\textit{the really funny [joke]}}\\
+}
+
+\glossline{7}{%
+  \glossmix{θαρρῶν}{assimilated form of θαρσῶν.}\\
+  \glossmix{ὅπως μὴ 'ρεῖς}{ὅπως + fut. indicative = impv. 'ρεῖς = ἐρεῖς < λέγω. \textit{Don't say}.}\\
+  \glossmix{τὸ τί;}{\textit{the what [joke]?} Interrogatives can take an article when asking about an already mentioned object, Smyth 1186}\\  
+}
+
+\glossline{8}{%
+    \glossmix{τἀνάφορον}{τὸ ἀνάφορον}\\
+    \glossmix{ὅτι}{assume a verb of speaking. \textit{[saying] as you shift your pole that you need to shit}}
+}
+
+\glossline{10}{%
+    \glossmix{καθαιρήσει}{fut. καθαιρέω}\\
+    \glossmix{ἀποπαρδήσομαι}{fut. ἀποπέρδομαι. future most vivid condition with fut. ind. in protasis.}
+}
+
+\glossline{11}{%
+    \glossmix{πλήν γ᾽ ὅταν μέλλω 'ξεμεῖν}{\textit{except whenever I'm going to puke}}
+}
+
+\glossline{13}{%
+    \glossmix{μηδὲν ὧνπερ}{μηδὲν τουτῶν ἅπερ... Partitive genitive and assimilation.}\\
+    \glossmix{Φρύνιχος... Λύκις... κἀμειψίας;}{Phrynichus, Lukis, and Ameipsias were three comic poets and competitors of Aristophanes. Phrynichus' \textit{Muses} took second place after \textit{Frogs} in 405.}\\
+}
+
+\glossline{14}{%
+    \glossmix{κἀμειψίας}{καὶ Ἀμειψίας.}\\
+}
+
+\end{parcolumns}
+\end{multicols}
+
+\newpage
+
+\begin{spacing}{1.5}
+
+\begin{tabularx}{\textwidth}{@{}lXr@{}}
+  \textit{Δι.} & μή νυν ποιήσῃς· ὡς ἐγὼ θεώμενος, & \\
+  & ὅταν τι τούτων τῶν σοφισμάτων ἴδω, & \\
+  & πλεῖν ἢ 'νιαυτῷ πρεσβύτερος ἀπέρχομαι. & \\
+  \textit{Ξα.} & ὦ τρισκακοδαίμων ἄρ᾽ ὁ τράχηλος οὑτοσί, & \\
+  & ὅτι θλίβεται μέν, τὸ δὲ γέλοιον οὐκ ἐρεῖ. & 20 \\
+  \textit{Δι.} & εἶτ᾽ οὐχ ὕβρις ταῦτ᾽ ἐστὶ καὶ πολλὴ τρυφή, & \\
+  & ὅτ᾽ ἐγὼ μὲν ὢν Διόνυσος υἱὸς Σταμνίου & \\
+  & αὐτὸς βαδίζω καὶ πονῶ, τοῦτον δ᾽ ὀχῶ, & \\ 
+  & ἵνα μὴ ταλαιπωροῖτο μηδ᾽ ἄχθος φέροι; & \\
+  \textit{Ξα.} & οὐ γὰρ φέρω 'γώ; & \\
+  \textit{Δι.} & \hspace*{7.5em}πῶς φέρεις γὰρ ὅς γ᾽ ὀχεῖ; & 25 \\
+  \textit{Ξα.} & φέρων γε ταυτί. & \\
+  \textit{Δι.} & \hspace*{6.5em}τίνα τρόπον; & \\
+  \textit{Ξα.} & \hspace*{12em}βαρέως πάνυ. & \\
+  \textit{Δι.} & οὔκουν τὸ βάρος τοῦθ᾽ ὃ σὺ φέρεις ὄνος φέρει; & \\
+  \textit{Ξα.} & οὐ δῆθ᾽ ὅ γ᾽ ἔχω 'γὼ καὶ φέρω μὰ τὸν Δί᾽ οὔ. & \\
+  \textit{Δι.} & πῶς γὰρ φέρεις, ὅς γ᾽ αὐτὸς ὑφ᾽ ἑτέρου φέρει; & \\
+  \textit{Ξα.} & οὐκ οἶδ᾽: ὁ δ᾽ ὦμος οὑτοσὶ πιέζεται. & 30 \\  
+\end{tabularx}
+
+\end{spacing}
+
+\newpage
+
+\begin{multicols}{2}
+\small % roughly 9pt
+\vocabentry{ἄχθος, εος, τό}{a weight, burden, load}
+\vocabentry{ἀπέρχομαι}{to go away, depart from}
+\vocabentry{βάρος, εος, τό}{weight}
+\vocabentry{βαρέως}{(adv.) heavily,  < βαρύς}
+\vocabentry{ἐνιαυτός, ὁ}{year}
+\vocabentry{θλίβω}{to press, squeeze, pinch}
+\vocabentry{ὄνος, ὁ, ἡ}{an ass, donkey}
+\vocabentry{οὔκουν}{certainly not; (in questions) ... not ..., expecting yes}
+\vocabentry{ὀχέω}{to hold fast; let (another) ride, mount; (mid). ride}
+\vocabentry{πιέζω}{to press, squeeze; oppress, distress}
+\vocabentry{πονέω}{to work hard, do work, suffer toil}
+\vocabentry{πρεσβύτερος, α, ον}{older (comp. πρέσβυς)}
+\vocabentry{σόφισμα, ματος, τό}{any skilful act; sophism; stage-trick}
+\vocabentry{Σταμνίας, ὁ}{(Comic proper noun) Wine-jar, < στάμνος wine-jar }
+\vocabentry{ταλαιπωρέω}{to go through hard labour, to suffer hardship}
+\vocabentry{τράχηλος, ὁ}{the neck, throat}
+\vocabentry{τρισκακοδαίμων, ων, ον}{thrice unlucky}
+\vocabentry{τρυφή, ἡ}{softness, delicacy, daintiness}
+\vocabentry{ὕβρις, εως, ἡ}{wantonness, wanton violence}
+\vocabentry{υἱός, ὁ}{a son}
+\vocabentry{ὦμος, ὁ}{shoulder (with the upper arm)}
+\end{multicols}
+
+\vspace{-1.5em}
+\noindent\rule{\linewidth}{0.4pt}
+\vspace{-2em}
+
+\begin{multicols}{2}
+\begin{parcolumns}[colwidths={1=1.5em, 2=0.9\linewidth}]{2}
+\small
+
+\glossline{16}{%
+  \glossmix{νυν}{enclitic with commands, \textit{come now}}\\
+  \glossmix{ὡς}{as, since}\\
+  \glossmix{θεώμενος}{\textit{spectator}; Athenian comedies were performed at festivals to Dionysus and a statue of the god was placed in the theater.}\\
+}
+\glossline{18}{%
+  \glossmix{πλεῖν}{= πλεῖον, πλέον, i.e. neut. sg. of πλείων. Adverbial accusative.}\\
+  \glossmix{'νιαυτῷ}{= ἐνιαυτῷ. dat. of degree of difference, redundant with ἢ. \textit{more than [by] a year}}\\
+}
+\glossline{19}{%
+  \glossmix{οὑτοσί}{deictic ('pointing') iota as suffix to οὗτος, \textit{this here}}. Cf. ταυτί, v. 26.\\
+  \glossmix{τρισκακοδαίμων ἄρ᾽ ὁ τράχηλος οὑτοσί}{nominatives, supply ἐστιν. \textit{thrice-unlucky is this...}}\\
+}
+\glossline{21}{%
+    \glossmix{εἶτ᾽}{εἶτα}\\
+    \glossmix{οὐχ}{Questions beginning with οὐ expect a positive response. Cf. v. 25. \textit{Then aren't these things... }}\\
+}
+
+\glossline{22}{%
+    \glossmix{ὅτ'}{= ὅτε. "the iota of ὅτι is never elided in Attic" (Stanford).}\\
+    \glossmix{Σταμνίου}{Dionysus is the son of Zeus, but for humorous effect here Aristophanes invents Stamnios(/as) derived from σταμνός ("wine jar").}\\
+}
+
+\glossline{23}{%
+  \glossmix{τοῦτον}{i.e. Xanthias}\\
+  \glossmix{μὴ... μηδ᾽}{\textit{not... nor}}\\
+  }
+
+\glossline{24}{%
+    \glossmix{ταλαιπωροῖτο... φέροι}{Normally the subjunctive is used in a purpose clause after a primary sequence main verb. In this case, the optative is used because ὀχῶ implies a reference to the past ("I let you mount in the past and now you ride"). Cf. Smyth 2200}\\
+}
+  
+\glossline{25}{%
+  \glossmix{γὰρ}{in abrupt questions, \textit{what, why}; \textit{What, I'm not the one carrying?}. Stanford sees these joke as parodies of sophistic argumentation about the active/passive voice, e.g. Euthyphro. Cf. 17}\\
+  \glossmix{ὀχεῖ}{2s mid. ὀχέω. \textit{you who are riding [lit. being held]}}\\
+}
+\glossline{26}{%
+  \glossmix{ταυτί}{ταῦτα and deictic iota, \textit{these things [in front of us]}}\\
+  \glossmix{Τίνα τρόπον}{\textit{How?}}\\
+  \glossmix{βαρέως πάνυ}{\textit{[carrying them] very heavily}}}\\
+}
+\glossline{27}{%
+  \glossmix{φέρει}{Active, unlike 29 φέρει}}\\
+}
+
+\glossline{28}{%
+    \glossmix{οὐ δῆθ’... μὰ τὸν Δι’ οὔ}{An extremely emphatic negative.}\\
+    \glossmix{ὅ γ'... φέρω}{relative clause introduced by ὅ, \textit{not what I'm holding and carrying at least}}\\
+}
+
+\glossline{29}{%
+    \glossmix{φέρει}{2s pass., \textit{you who are being carried}}
+}
+
+\end{parcolumns}
+\end{multicols}
+
+\newpage
+
+\begin{spacing}{1.5}
+
+\begin{tabularx}{\textwidth}{@{}lXr@{}}
+  \textit{Δι.} & σὺ δ᾽ οὖν ἐπειδὴ τὸν ὄνον οὐ φῄς σ᾽ ὠφελεῖν, & \\
+  & ἐν τῷ μέρει σὺ τὸν ὄνον ἀράμενος φέρε. & \\
+  \textit{Ξα.} & οἴμοι κακοδαίμων· τί γὰρ ἐγὼ οὐκ ἐναυμάχουν; & \\
+  & ἦ τἄν σε κωκύειν ἂν ἐκέλευον μακρά. & \\
+  \textit{Δι.} & κατάβα πανοῦργε. καὶ γὰρ ἐγγὺς τῆς θύρας & 35 \\
+  & ἤδη βαδίζων εἰμὶ τῆσδ᾽, οἷ πρῶτά με & \\
+  & ἔδει τραπέσθαι. παιδίον, παῖ, ἠμί, παῖ. & \\
+\end{tabularx}
+
+\noindent\textit{\MakeUppercase{\textls[200]{Ἡρακλῆς}}}
+
+\begin{tabularx}{\textwidth}{@{}lXr@{}}
+  & τίς τὴν θύραν ἐπάταξεν; ὡς κενταυρικῶς & \\
+  & ἐνήλαθ᾽ ὅστις· εἰπέ μοι τουτὶ τί ἦν; & \\
+  \textit{Δι.} & ὁ παῖς. & \\
+  \textit{Ξα.} & \hspace*{3em}τί ἔστιν; & \\
+  \textit{Δι.} & \hspace*{6.5em}οὐκ ἐνεθυμήθης; & \\
+  \textit{Ξα.} & \hspace*{13.5em}τὸ τί; & 40 \\
+  \textit{Δι.} & ὡς σφόδρα μ᾽ ἔδεισε. & \\
+  \textit{Ξα.} & \hspace*{8.5em}νὴ Δία μὴ μαίνοιό γε. & \\
+  \textit{Ἡρ.} & οὔ τοι μὰ τὴν Δήμητρα δύναμαι μὴ γελᾶν· & \\
+  & καίτοι δάκνω γ᾽ ἐμαυτόν· ἀλλ᾽ ὅμως γελῶ. & \\
+  \textit{Δι.} & ὦ δαιμόνιε πρόσελθε· δέομαι γάρ τί σου. & \\
+\end{tabularx}
+
+\end{spacing}
+
+\newpage
+
+\begin{multicols}{2}
+\small % roughly 9pt
+\vocabentry{αἴρω}{to lift, raise up}
+\vocabentry{δαιμόνιος, α, ον}{of/belonging to a δαίμων; marvelous; (voc.) good sir/lady}
+\vocabentry{δάκνω}{to bite}
+\vocabentry{δείδω}{to fear}
+\vocabentry{δέομαι}{to need, want (w. gen. of person and acc. of thing)}
+\textbf{\vocabentry{ἐγγύς}{(adv.) near, nigh, at hand}}
+\vocabentry{ἐν-άλλομαι}{to leap in}
+\vocabentry{ἐν-θυμέομαι}{to lay to heart, ponder; notice, consider}
+\vocabentry{ἠμί}{to say}
+\vocabentry{καίτοι}{and indeed, and further; and yet}
+\vocabentry{κακο-δαίμων, ον}{ill-fated; (freq in Com.) poor devil!}
+\vocabentry{κατα-βαίνω}{to step down, go}
+\vocabentry{κελεύω}{to urge}
+\textbf{\vocabentry{Κενταυρικός}{(adv.) like a Centaur}}
+\vocabentry{κωκύω}{to shriek, cry, wail}
+\vocabentry{μαίνομαι}{to rage, be crazy}
+\vocabentry{μακρός, ός, ά, όν}{long}
+\vocabentry{ναυ-μαχέω}{to fight by sea}
+\vocabentry{οἷ}{whither}
+\vocabentry{ὅμως}{nevertheless, still}
+\vocabentry{ὄνος, ὁ, ἡ}{an ass}
+\vocabentry{παιδίον, τό}{a child}
+\vocabentry{παν-οῦργος, ον}{willing to do anything, tricky; (in comedy) general term of abuse}
+\vocabentry{πατάσσω}{to beat, knock}
+\vocabentry{προσ-έρχομαι}{to come}
+\vocabentry{τρέπω}{turn; (mid). turn or betake oneself, go}
+\vocabentry{σφόδρα}{(adv.) very, very much, exceedingly, violently}
+\vocabentry{ὠφελέω}{to help, aid, assist, to be of use}
+\end{multicols}
+
+\vspace{-1.5em}
+\noindent\rule{\linewidth}{0.4pt}
+\vspace{-2em}
+
+\begin{multicols}{2}
+\begin{parcolumns}[colwidths={1=1.5em, 2=0.9\linewidth}]{2}
+\small
+
+\glossline{32}{%
+ \glosstxt{ἐν τῷ μέρει}{in turn}\\
+}
+
+\glossline{33}{%
+ \glossmix{τί γὰρ ἐγὼ οὐκ ἐναυμάχουν;}{Slaves who fought in the naval battle at Arginusai in 406 BCE were granted their freedom.}\\
+}
+
+\glossline{34}{%
+  \glossmix{ἦ τἄν}{ἦ τοι ἄν, \textit{Then, you know...}. The repetition of ἄν is not unusual.}\\
+  \glossmix{μακρά}{Adverbial/internal accusative as usual adv. for μακρός, \textit{at length}.}\\
+}
+
+\glossline{35}{%
+ \glossmix{κατάβα}{aor. impv. καταβαίνω, \textit{dismount}. The actors arrive at a door in the stage building. After this point there is no further mention of the donkey, which is presumably led offstage by a mute actor.}\\
+}
+
+\glossline{37}{%
+ \glossmix{παιδίον, παῖ}{Referring to a slave expected to open the door.}\\
+}
+
+\glossline{38}{%
+ \glossmix{}{Heracles himself unexpectedly opens the door.}\\
+}
+
+\glossline{39}{%
+ \glossmix{ὅστις}{\textit{whoever [it was]}}\\
+ \glossmix{τουτὶ τί ἦν}{\textit{what's this thing here?}. Impf. slightly difficult (Stanford claims 'imperfect of intention'}\\
+}
+
+\glossline{40}{%
+ \glossmix{ὁ παῖς}{to Xanthias. Masters often use the nominative rather than the vocative in addressing slaves, cf. 521}\\
+}
+
+\glossline{41}{%
+ \glossmix{μὴ μαίνοιό γε}{Fear clause picking up on ἔδεισε, \textit{yes by Zeus, [afraid] that you're crazy at least}}\\
+}
+
+\end{parcolumns}
+\end{multicols}
+
+\newpage
+
+\begin{spacing}{1.5}
+
+\begin{tabularx}{\textwidth}{@{}lXr@{}}
+  \textit{Ἡρ.} & Ἀλλ' οὐχ οἷός τ' εἴμ' ἀποσοβῆσαι τὸν γέλων & 45 \\
+  & ὁρῶν λεοντῆν ἐπὶ κροκωτῷ κειμένην. & \\
+  & Τίς ὁ νοῦς; Τί κόθορνος καὶ ῥόπαλον ξυνηλθέτην; & \\
+  & Ποῖ γῆς ἀπεδήμεις; & \\
+  \textit{Δι.} & \hspace*{8em}Ἐπεβάτευον Κλεισθένει. & \\
+  \textit{Ἡρ.} & Κἀναυμάχησας; & \\
+  \textit{Δι.} & \hspace*{7em}Καὶ κατεδύσαμέν γε ναῦς & \\
+  & τῶν πολεμίων ἢ δώδεκ' ἢ τρεισκαίδεκα. & 50 \\
+  \textit{Ἡρ.} & Σφώ; & \\
+  \textit{Δι.} & \hspace*{2.5em}Νὴ τὸν Ἀπόλλω. & \\
+  \textit{Ξα.} & \hspace*{9.5em}Κᾆτ' ἔγωγ' ἐξηγρόμην. & \\
+  \textit{Δι.} & Καὶ δῆτ' ἐπὶ τῆς νεὼς ἀναγιγνώσκοντί μοι & \\
+  & τὴν Ἀνδρομέδαν πρὸς ἐμαυτὸν ἐξαίφνης πόθος & \\
+  & τὴν καρδίαν ἐπάταξε πῶς οἴει σφόδρα. & \\
+  \textit{Ἡρ.} & Πόθος; πόσος τις; & \\
+  \textit{Δι.} & \hspace*{7.5em}Σμικρός, ἡλίκος Μόλων. & 55 \\
+  \textit{Ἡρ.} & Γυναικός; & \\
+  \textit{Δι.} & \hspace*{4em}Οὐ δῆτ'. & \\
+  \textit{Ἡρ.} & \hspace*{7.5em}Ἀλλὰ παιδός; & \\
+  \textit{Δι.} & \hspace*{13em}Οὐδαμῶς. & \\
+\end{tabularx}
+
+\end{spacing}
+
+\newpage
+
+\begin{multicols}{2}
+\small % roughly 9pt
+\vocabentry{ἀνα-γιγνώσκω}{to know well, know certainly; to read}
+\vocabentry{Ἀνδρομέδα, ἡ}{Andromeda; heroine, lost tragedy by Euripides, produced 413/2}
+\vocabentry{ἀπο-δημέω}{to be away from home, be abroad}
+\vocabentry{ἀπο-σοβέω}{to scare away; (metaph.) to keep off}
+\vocabentry{γέλως, ωτος, ὁ (poet. acc. γέλων)}{laughter}
+\vocabentry{δώ-δεκα}{twelve}
+\vocabentry{ἐξ-αίφνης}{(adv.) suddenly}
+\vocabentry{ἐξ-εγείρω}{to awaken}
+\vocabentry{ἐπι-βατεύω}{to serve as a marine (ἐπιβάτης)}
+\vocabentry{ἡλίκος, ός, ά, όν}{as big as, of the same age as; how great, what size..!}
+\vocabentry{καρδία, ἡ}{the heart}
+\vocabentry{κατά-δύω}{to go down; (causal) to make to sink, sink}
+\vocabentry{Κλεισθένης, ους, ὁ}{Cleisthenes, frequently attacked in comedy for his alleged effeminacy}
+\vocabentry{κόθορνος, ὁ}{high boot associated with women and Dionysus, in post-classical theater worn by tragic actors}
+\vocabentry{κροκωτός, ὁ}{a saffron-colored robe worn by women on special occasions < κροκωτός saffron-dyed}
+\vocabentry{λεοντέη, ἡ}{a lion's skin}
+\vocabentry{Μόλων, οντος, ὁ}{Molon}
+\vocabentry{ναυ-μαχέω}{to fight by sea}
+\vocabentry{νή}{Particle of strong affirmation, with acc. of the divinity invoked}
+\vocabentry{οἷός τ' εἴμ' + inf.}{to be able (to do)}
+\vocabentry{οὐδαμῶς}{(adv.) in no way}
+\vocabentry{πατάσσω}{to beat, knock}
+\vocabentry{πόθος, ὁ}{a longing, yearning, fond desire}
+\vocabentry{πολέμιος, ός, ά, όν}{hostile; enemy}
+\vocabentry{ῥόπαλον, τό}{a club, cudgel}
+\vocabentry{σμικρός, ός, ά, όν}{= μικρός}
+\vocabentry{συν-έρχομαι (Attic ξυν-)}{come together, meet}
+\vocabentry{Σφώ}{nom. dual. of σύ, you two}
+\vocabentry{σφόδρα}{(adv.) very, very much, exceedingly, violently}
+\vocabentry{τρει-καί-δεκα, ὁ, ἡ}{thirteen}
+\end{multicols}
+
+\vspace{-1.5em}
+\noindent\rule{\linewidth}{0.4pt}
+\vspace{-2em}
+
+\begin{multicols}{2}
+\begin{parcolumns}[colwidths={1=1.5em, 2=0.9\linewidth}]{2}
+\small
+
+\glossline{47}{%
+ \glossmix{Τίς ὁ νοῦς}{\textit{What's the idea}}\\
+ \glossmix{ξυνηλθέτην}{3rd person dual aorist of συνέρχομαι, \textit{come together}}\\
+}
+
+\glossline{48}{%
+ \glossmix{Ποῖ γῆς}{\textit{Where in the world did you go off to?}}\\
+ \glossmix{Ἐπεβάτευον}{\textit{I served as a marine for Cleisthenes.}, but possibly a pun on ἐπιβαίνω \textit{I was mounting Cleisthenes}}\\
+}
+
+\glossline{49}{%
+ \glossmix{Κἀναυμάχησας}{= καὶ ἐναυμάχησας}\\
+}
+
+\glossline{51}{%
+ \glossmix{Κᾆτ}{= καὶ εἶτα}\\
+ \glossmix{ἐξηγρόμην}{aor. mid. ἐξεγείρω}\\
+}
+
+\glossline{53}{%
+ \glossmix{πῶς οἴει}{parenthetical question, "used virtually as an adverb of intensification" (Dover), \textit{you can't imagine how, unbelievably}}\\
+ \glossmix{ἐξηγρόμην}{aor. mid. ἐξεγείρω}\\
+}
+
+\glossline{55}{%
+ \glossmix{Μόλων}{A famous actor, apparently a large man.}\
+} 
+
+\glossline{56}{%
+ \glossmix{Οὐ δῆτ'. Ἀλλὰ}{\textit{Certainly now. Well, then...} (Stanford)}\
+}
+
+\end{parcolumns}
+\end{multicols}
+
+\newpage
+
+\begin{spacing}{1.5}
+
+\begin{tabularx}{\textwidth}{@{}lXr@{}}
+  \textit{Ἡρ.} & Ἀλλ' ἀνδρός; & \\
+  \textit{Δι.} & \hspace*{5.5em}Ἀπαπαῖ. & \\
+  \textit{Ἡρ.} & \hspace*{9em}Ξυνεγένου τῷ Κλεισθένει; & \\
+  \textit{Δι.} & Μὴ σκῶπτέ μ', ὦδέλφ'· οὐ γὰρ ἀλλ' ἔχω κακῶς· & \\
+  & τοιοῦτος ἵμερός με διαλυμαίνεται. & \\
+  \textit{Ἡρ.} & Ποῖός τις, ὦδελφίδιον; & \\
+  \textit{Δι.} & \hspace*{9.5em}Οὐκ ἔχω φράσαι. & 60 \\
+  & Ὅμως γε μέντοι σοι δι' αἰνιγμῶν ἐρῶ. & \\
+  & Ἤδη ποτ' ἐπεθύμησας ἐξαίφνης ἔτνους; & \\
+  \textit{Ἡρ.} & Ἔτνους; Βαβαιάξ, μυριάκις γ' ἐν τῷ βίῳ. & \\
+  \textit{Δι.} & Ἆρ' ἐκδιδάσκω τὸ σαφὲς, ἢ 'τέρᾳ φράσω; & \\
+  \textit{Ἡρ.} & Μὴ δῆτα περὶ ἔτνους γε· πάνυ γὰρ μανθάνω. & 65 \\
+  \textit{Δι.} & Τοιουτοσὶ τοίνυν με δαρδάπτει πόθος & \\
+  & Εὐριπίδου. & \\
+  \textit{Ἡρ.} & \hspace*{5em}Καὶ ταῦτα τοῦ τεθνηκότος; & \\
+  \textit{Δι.} & Κοὐδείς γέ μ' ἂν πείσειεν ἀνθρώπων τὸ μὴ οὐκ & \\
+  & ἐλθεῖν ἐπ' ἐκεῖνον. & \\
+  \textit{Ἡρ.} & \hspace*{7.5em}Πότερον εἰς Ἅιδου κάτω; & \\
+  \textit{Δι.} & Καὶ νὴ Δί' εἴ τί γ' ἔστιν ἔτι κατωτέρω. & 70 \\
+\end{tabularx}
+
+\end{spacing}
+
+\newpage
+
+\begin{multicols}{2}
+\small % roughly 9pt
+\vocabentry{ἀδελφίδιον, τό}{diminutive of ἀδελφός}
+\vocabentry{ἀδελφός, ὁ}{brother}
+\vocabentry{ἀπαπαῖ}{"an inarticulate expression of grief or pain" (Stanford)}
+\vocabentry{αἰνιγμός, ὁ}{a riddle; allusion, allegory}
+\vocabentry{βαβαιάξ}{strengthened form of βαβαί}
+\vocabentry{βαβαί}{exclamation of a reaction to misfortune}
+\vocabentry{βίος, ὁ}{life}
+\vocabentry{δαρδάπτω}{to devour}
+\vocabentry{δια-λυμαίνομαι}{to maltreat shamefully, ruin}
+\vocabentry{ἐξαίφνης}{(adv.) suddenly}
+\vocabentry{ἐκ-διδάσκω}{to teach thoroughly}
+\vocabentry{ἐπι-θυμέω}{to set one's heart upon (a thing), long for (+ gen.)}
+\vocabentry{ἔτνος, εος, τό}{thick soup}
+\vocabentry{ἔχω}{to have; (+ inf.) to be able, can}
+\vocabentry{ἵμερος, ὁ}{a longing}
+\vocabentry{κατωτέρω}{(adv.) lower (comp. κατώ)}
+\vocabentry{μανθάνω}{to learn; to understand}
+\vocabentry{μυριάκις}{(adv.) ten thousand times}
+\vocabentry{πόθος, ὁ}{a longing, yearning, fond desire}
+\vocabentry{πότερον}{(adv.) introduces question with two alternatives}
+\vocabentry{σκώπτω}{to mock, make fun of}
+\vocabentry{συγ-γίγνομαι (Att. ξυγ-)}{to be with}
+\vocabentry{φράζω}{to point out, show; tell, declare, explain}
+\end{multicols}
+
+\vspace{-1.5em}
+\noindent\rule{\linewidth}{0.4pt}
+\vspace{-2em}
+
+\begin{multicols}{2}
+\begin{parcolumns}[colwidths={1=1.5em, 2=0.9\linewidth}]{2}
+\small
+
+\glossline{57}{%
+ \glossmix{Ξυνεγένου}{= συνεγένου, aor. συγγίγνομαι.}\\
+}
+
+\glossline{58}{%
+ \glossmix{ὦδέλφ}{= ὦ ἀδέλφε. Both Heracles and Dionysus were sons of Zeus.}\\
+ \glossmix{οὐ γὰρ ἀλλ'}{\textit{because... really...}}\\
+ \glossmix{ἔχω κακῶς}{ἔχω + adverb describes a person's state. \textit{I'm doing poorly}}\\
+}
+
+\glossline{61}{%
+ \glossmix{Ὅμως γε μέντοι}{\textit{Nevertheless}}\\
+}
+
+\glossline{64}{%
+ \glossmix{Ἆρ' ἐκδιδάσκω τὸ σαφὲς}{\textit{Am I spelling out what's clear}}\\
+ \glossmix{'τέρᾳ}{= ἐτέρᾳ. \textit{in another way}}\\
+ \glossmix{ἑτέρᾳ φράσω}{The scholia claim that this half-line comes from Euripides' Hypsipyle (ἔστι δὲ τὸ ἡμιστίχιον ἐξ Ὑψιπύλης Εὐριπίδου.)}\\
+}
+
+\glossline{67}{%
+ \glossmix{καὶ ταῦτα}{\textit{and that (lit. these things), and what's more}}
+}
+
+\glossline{68}{%
+ \glossmix{τὸ μὴ οὐκ}{τὸ μὴ οὐκ + inf. normal construction after a verb of persuasion. \textit{could persuade me not to...}}
+}
+
+\glossline{69}{%
+ \glossmix{ἐπ' ἐκεῖνον}{\textit{after him, in search of him, to get him}}
+}
+
+\end{parcolumns}
+\end{multicols}
+
+\newpage
+
+\begin{spacing}{1.5}
+
+\begin{tabularx}{\textwidth}{@{}lXr@{}}
+  \textit{Ἡρ.} & Τί βουλόμενος; & \\
+  \textit{Δι.} & \hspace*{6.5em}Δέομαι ποητοῦ δεξιοῦ. & \\
+  & Οἱ μὲν γὰρ οὐκέτ' εἰσίν, οἱ δ' ὄντες κακοί. & \\
+  \textit{Ἡρ.} & Τί δ'; Οὐκ Ἰοφῶν ζῇ; & \\
+  \textit{Δι.} & \hspace*{8.5em}Τοῦτο γάρ τοι καὶ μόνον & \\
+  & ἔτ' ἐστὶ λοιπὸν ἀγαθόν, εἰ καὶ τοῦτ' ἄρα· & \\
+  & οὐ γὰρ σάφ' οἶδ' οὐδ' αὐτὸ τοῦθ' ὅπως ἔχει. & 75 \\
+  \textit{Ἡρ.} & Εἶτ' οὐ Σοφοκλέα πρότερον ὄντ' Εὐριπίδου & \\
+  & μέλλεις ἀναγαγεῖν, εἴπερ ἐκεῖθεν δεῖ σ' ἄγειν; & \\
+  \textit{Δι.} & Οὔ, πρίν γ' ἂν Ἰοφῶντ', ἀπολαβὼν αὐτὸν μόνον, & \\
+  & ἄνευ Σοφοκλέους ὅ τι ποεῖ κωδωνίσω. & \\
+  & Κἄλλως ὁ μέν γ' Εὐριπίδης πανοῦργος ὢν & 80 \\
+  & κἂν ξυναποδρᾶναι δεῦρ' ἐπιχειρήσειέ μοι· & \\
+  & ὁ δ' εὔκολος μὲν ἐνθάδ', εὔκολος δ' ἐκεῖ. & \\
+  \textit{Ἡρ.} & Ἀγάθων δὲ ποῦ 'στιν; & \\
+  \textit{Δι.} & \hspace*{9em}Ἀπολιπών μ' ἀποίχεται, & \\
+  & ἀγαθὸς ποητὴς καὶ ποθεινὸς τοῖς φίλοις. & \\
+\end{tabularx}
+
+\end{spacing}
+
+\newpage
+
+\begin{multicols}{2}
+\small % roughly 9pt
+\vocabentry{ἄνευ}{without + gen.}
+\vocabentry{Ἀγάθων, οντος, ὁ}{Agathon, famous tragedian}
+\vocabentry{ἀν-άγω}{to lead up}
+\vocabentry{ἀπο-λείπω}{to leave behind; desert, abandon}
+\vocabentry{ἀπ-οίχομαι}{to be gone away, to be far from}
+\vocabentry{δεξιός, ά, όν}{right; skillful, clever}
+\vocabentry{δέω}{to lack; (mid.) to need + gen.}
+\vocabentry{ἐκεῖ}{(adv.) there, in that place}
+\vocabentry{ἐκεῖθεν}{(adv.) from that place, thence}
+\vocabentry{ἐπι-χειρέω}{to attempt, try}
+\vocabentry{εὔκολος, ον}{easily satisfied, contented}
+\vocabentry{ζῶ}{to live}
+\vocabentry{Ἰοφῶν, ὁ}{Iophon, Sophocles' son, successful tragedian}
+\vocabentry{κωδωνίζω}{to prove by ringing < κώδων bell}
+\vocabentry{λοιπός, ά, όν}{remaining, left}
+\vocabentry{πανοῦργος, ον}{ready to do anything, roguish}
+\vocabentry{ποθεινός, ά, όν}{longed for, desired, much desired}
+\vocabentry{ποιητής, οῦ, ὁ (Att. ποη-)}{maker; poet < ποιέω}
+\vocabentry{σάφα}{(adv.) clearly, plainly, assuredly}
+\vocabentry{Σοφοκλῆς, ὁ}{Sophocles, big 3 tragedian}
+\vocabentry{συν-απο-διδράσκω (Att. ξυν-)}{to run away along with}
+\end{multicols}
+
+\vspace{-1.5em}
+\noindent\rule{\linewidth}{0.4pt}
+\vspace{-2em}
+
+\begin{multicols}{2}
+\begin{parcolumns}[colwidths={1=1.5em, 2=0.9\linewidth}]{2}
+\small
+
+\glossline{72}{%
+ \glossmix{}{a quotation from Euripides' Oeneus. \textit{σὺ δ' ὧδ' ἔρημος ξυμμάχων ἀπόλλυσαι·
+  οἱ μὲν γὰρ οὐκ ἔτ' εἰσὶν, οἱ δ' ὄντες κακοὶ.}}\\
+}
+
+\glossline{73}{%
+ \glossmix{ζῇ}{3s pres. act. ind. ζῶ}\\
+ \glossmix{Τοῦτο γάρ τοι καὶ μόνον...}{\textit{Yes, for this is still just the only good thing left}}\\
+ \glossmix{εἰ καὶ τοῦτ' ἄρα}{\textit{if in fact it is}}\\
+}
+
+\glossline{76}{%
+ \glossmix{πρότερον ὄντ'}{\textit{since he's superior to, better than}}\\
+}
+
+\glossline{77}{%
+ \glossmix{ἀναγαγεῖν}{aor. inf. ἀνάγω}\\
+}
+
+\glossline{78}{%
+ \glossmix{πρίν ἄν}{LSJ II.2.: πρίν in sense of \textit{until} after a negative regularly takes ἄν + subj. \textit{No, not until I test...}}\\
+}
+
+\glossline{79}{%
+ \glossmix{ποεῖ}{= ποιεῖ}\\
+}
+
+\glossline{80}{%
+ \glossmix{Κἄλλως}{= καὶ ἄλλως, \textit{and anyway}}\\
+ \glossmix{}{The sense is: That old rogue Euripides might try to escape up here anyway.}
+}
+
+\glossline{81}{%
+ \glossmix{ξυναποδρᾶναι}{aor. inf. συναποδιδράσκω, elsewhere used of deserters and fugitive slaves.}\\
+}
+
+\glossline{83}{%
+ \glossmix{ἀπολιπών}{aor. pple. ἀπολείπω}\\
+}
+
+\end{parcolumns}
+\end{multicols}
+
+\newpage
+
+\begin{spacing}{1.5}
+
+\begin{tabularx}{\textwidth}{@{}lXr@{}}
+  \textit{Ἡρ.} & Ποῖ γῆς ὁ τλήμων; & \\
+  \textit{Δι.} & \hspace*{8em}Ἐς μακάρων εὐωχίαν. & 85 \\
+  \textit{Ἡρ.} & Ὁ δὲ Ξενοκλέης; & \\
+  \textit{Δι.} & \hspace*{7em}Ἐξόλοιτο νὴ Δία. & \\
+  \textit{Ἡρ.} & Πυθάγγελος δέ; & \\
+  \textit{Ξα.} & \hspace*{7em}Περὶ ἐμοῦ δ' οὐδεὶς λόγος & \\
+  & ἐπιτριβομένου τὸν ὦμον οὑτωσὶ σφόδρα. & \\
+  \textit{Ἡρ.} & Οὔκουν ἕτερ' ἔστ' ἐνταῦθα μειρακύλλια & \\
+  & τραγῳδίας ποιοῦντα πλεῖν ἢ μυρία, & 90 \\
+  & Εὐριπίδου πλεῖν ἢ σταδίῳ λαλίστερα; & \\
+  \textit{Δι.} & Ἐπιφυλλίδες ταῦτ' ἐστὶ καὶ στωμύλματα, & \\
+  & χελιδόνων μουσεῖα, λωβηταὶ τέχνης, & \\
+  & ἃ φροῦδα θᾶττον, ἢν μόνον χορὸν λάβῃ, & \\
+  & ἅπαξ προσουρήσαντα τῇ τραγῳδίᾳ. & 95 \\
+  & Γόνιμον δὲ ποιητὴν ἂν οὐχ εὕροις ἔτι & \\
+  & ζητῶν ἄν, ὅστις ῥῆμα γενναῖον λάκοι. & \\
+  \textit{Ἡρ.} & Πῶς γόνιμον; & \\
+  \textit{Δι.} & \hspace*{6em}Ὡδὶ γόνιμον, ὅστις φθέγξεται & \\
+  & τοιουτονί τι παρακεκινδυνευμένον, & \\
+  & “αἰθέρα Διὸς δωμάτιον,” ἢ “χρόνου πόδα,” & 100 \\
+
+\end{tabularx}
+
+\end{spacing}
+
+\newpage
+
+\begin{multicols}{2}
+\small % roughly 9pt
+\vocabentry{αἰθήρ, έρος, ἡ/ὁ}{ether, the heaven}
+\vocabentry{ἅπαξ}{(adv.) once}
+\vocabentry{γενναῖος, α, ον}{high-born, noble; high-minded}
+\vocabentry{γόνιμος, ον}{fruitful, fertile}
+\vocabentry{δωμάτιον, τό}{a chamber, bed-chamber}
+\vocabentry{ἐξ-όλλυμι}{to destroy utterly; (mid.) perish utterly}
+\vocabentry{ἐπιτρίβω}{to rub on the surface, to crush}
+\vocabentry{ἐπιφυλλίς, ος, ἡ}{the small grapes left for gleaners (though meaning disputed)}
+\vocabentry{εὐωχία, ἡ}{good cheer, feasting}
+\vocabentry{θάσσων, ον (Att. θάττων)}{(neut. as adv.) very quickly, comp. ταχύς}
+\vocabentry{λάλος, ός, ά, όν}{talkative, babbling, loquacious; irreg. comp. λαλίστερος}
+\vocabentry{λάσκω}{to ring, rattle; to scream, shout; to utter}
+\vocabentry{λαβή, ἡ}{a handle, haft}
+\vocabentry{λωβητής, ὁ}{destroyer, < λωβᾶσθαι damage, spoil}
+\vocabentry{μάκαρ, αρος, ὁ}{blessed}
+\vocabentry{μειρακύλλιον, τό}{dim. μειράκιον, little lad, kid}
+\vocabentry{Μουσεῖον, τό}{shrine of the Muses; music-hall}
+\vocabentry{μυρίος, ός, ά, όν}{numberless, countless, infinite}
+\vocabentry{Ξενοκλῆς, ὁ}{Xenokles, minor tragedian}
+\vocabentry{οὔκουν}{certainly not; (in questions) ... not ..., expecting yes}
+\vocabentry{παρα-κινδυνεύω}{to venture, risk}
+\vocabentry{προσ-ουρέω}{urinate on; piss on (+ dat.)}
+\vocabentry{Πυθάγγελος, ὁ}{Pythangelus, tragedian, otherwise unknown}
+\vocabentry{ῥῆμα, ατος, τό}{that which is said or spoken, word, saying}
+\vocabentry{στάδιον, τό}{a stade, = ca. 600 feet}
+\vocabentry{στώμυλμα, ματος, τό}{chatterbox < στωμύλος talkative < στόμα mouth}
+\vocabentry{σφόδρα}{(adv.) very, very much}
+\vocabentry{τλήμων, ων, ον}{suffering, enduring; wretched, miserable}
+\vocabentry{φροῦδος, ός, ά, όν}{gone away, clean gone; (of persons) gone, fled, departed}
+\vocabentry{χελιδών, όνος, ἡ}{swallow (bird)}
+\vocabentry{ὦμος, ὁ}{shoulder (with the upper arm)}
+\vocabentry{ὡδί}{(adv.) }
+\end{multicols}
+
+\vspace{-1.5em}
+\noindent\rule{\linewidth}{0.4pt}
+\vspace{-2em}
+
+\begin{multicols}{2}
+\begin{parcolumns}[colwidths={1=1.5em, 2=0.9\linewidth}]{2}
+\small
+
+\glossline{86}{%
+ \glossmix{Ἐξόλοιτο}{aor. opt. ἐξόλλυμι, \textit{may he perish}}\\
+}
+
+\glossline{87}{%
+ \glossmix{Περὶ ἐμοῦ δ' οὐδεὶς λόγος}{\textit{but about me there's no consideration}}\\
+}
+
+\glossline{91}{%
+ \glossmix{Εὐριπίδου πλεῖν ἢ σταδίῳ λαλίστερα;}{\textit{'And miles verboser than Euripides'} (Murray)}\\
+}
+
+\glossline{93}{%
+ \glossmix{χελιδόνων μουσεῖα}{\textit{performance halls of swallows}, a parody of Euripides' Alcmene: πολὺς δ' ἀνεῖρπε κισσὸς, εὐφυὴς κλάδος, / χελιδόνων μουσεῖον. Greeks frequently compared non-Greek language to the sound of swallows (Σ: ἀντὶ τοῦ βάρβαρα καὶ ἀσύνετα)}\\
+}
+
+\glossline{94}{%
+ \glossmix{}{Supply ἐστιν. \textit{who [are] gone in a flash (lit. very quickly), if they get a single chorus, after pissing once and for all on tragedy.} To 'get a chorus' is to be granted a performance slot in the festival competition.}\\
+}
+
+\glossline{99}{%
+ \glossmix{τοιουτονί τι παρακεκινδυνευμένον,}{\textit{a risky kind of (expression) like this}}\\
+}
+
+\end{parcolumns}
+\end{multicols}
+
+\newpage
+
+\begin{spacing}{1.5}
+
+\begin{tabularx}{\textwidth}{@{}lXr@{}}
+  & ἢ «φρένα μὲν οὐκ ἐθέλουσαν ὀμόσαι καθ' ἱερῶν, & \\
+  & γλῶτταν δ' ἐπιορκήσασαν ἰδίᾳ τῆς φρενός.» & \\
+  \textit{Ἡρ.} & Σὲ δὲ ταῦτ' ἀρέσκει; & \\
+  \textit{Δι.} & \hspace*{8.5em}Μἀλλὰ πλεῖν ἢ μαίνομαι. & \\
+  \textit{Ἡρ.} & Ἦ μὴν κόβαλά γ' ἐστίν, ὡς καὶ σοὶ δοκεῖ. & \\
+  \textit{Δι.} & Μὴ τὸν ἐμὸν οἴκει νοῦν· ἔχεις γὰρ οἰκίαν. & 105 \\
+  \textit{Ἡρ.} & Καὶ μὴν ἀτεχνῶς γε παμπόνηρα φαίνεται. & \\
+  \textit{Δι.} & Δειπνεῖν με δίδασκε. & \\
+  \textit{Ξα.} & \hspace*{8.5em}Περὶ ἐμοῦ δ' οὐδεὶς λόγος. & \\
+  \textit{Δι.} & Ἀλλ' ὧνπερ ἕνεκα τήνδε τὴν σκευὴν ἔχων & \\
+  & ἦλθον κατὰ σὴν μίμησιν, ἵνα μοι τοὺς ξένους & \\
+  & τοὺς σοὺς φράσειας, εἰ δεοίμην, οἷσι σὺ & 110 \\
+  & ἐχρῶ τόθ', ἡνίκ' ἦλθες ἐπὶ τὸν Κέρβερον, & \\
+  & τούτους φράσον μοι, λιμένας, ἀρτοπώλια, & \\
+  & πορνεῖ', ἀναπαύλας, ἐκτροπάς, κρήνας, ὁδούς, & \\
+  & πόλεις, διαίτας, πανδοκευτρίας, ὅπου & \\
+  & κόρεις ὀλίγιστοι. & \\
+  \textit{Ξα.} & \hspace*{7.5em}Περὶ ἐμοῦ δ' οὐδεὶς λόγος. & 115 \\
+
+\end{tabularx}
+
+\end{spacing}
+
+\newpage
+
+\begin{multicols}{2}
+\small % roughly 9pt
+\vocabentry{ἀνά-παυλα, ἡ}{repose, rest; resting-place, inn}
+\vocabentry{ἀρέσκω}{to make good, make up; to please}
+\vocabentry{ἀρτο-πώλιον, τό}{a baker's shop, bakery}
+\vocabentry{ἀ-τεχνῶς}{(adv.) simply}
+\vocabentry{δέω}{to lack, miss, stand in need of}
+\vocabentry{δειπνέω}{to eat dinner < δεῖπνον dinner}
+\vocabentry{δίαιτα, ἡ}{a way of living, mode of life; dwelling, abode; room}
+\vocabentry{δίδασκω}{to teach}
+\vocabentry{ἐκ-τροπή, ἡ}{a turning off; fork, branch (in road)}
+\vocabentry{ἐπι-ορκέω}{to swear falsely, forswear oneself}
+\vocabentry{ἕνεκα}{(+ gen.) on account of, for the sake of, because of, for}
+\vocabentry{ἰδίᾳ}{(adv.) by oneself, privately, separately (+ gen.) < ἴδιος one's own}
+\vocabentry{ἱερά, τά}{sacrifices, offerings, victims (< ἱερός holy)}
+\vocabentry{κατά}{(+ gen.) down from; (LSJ A.II.4) (of vows or oaths) by}
+\vocabentry{Κέρβερος, ὁ}{Cerberus, the guard-dog of Hades}
+\vocabentry{κόβαλα, τά}{dirty tricks, rogueries}
+\vocabentry{κόρις, ιος, ὀ}{bedbug}
+\vocabentry{κρήνη, ἡ}{a well, spring, fountain}
+\vocabentry{λιμήν, ένος, ὁ}{harbor; (metaphor.) haven, refuge}
+\vocabentry{μίμησις, ἡ}{imitation}
+\vocabentry{ὀλίγιστος, ός, ά, όν}{}
+\vocabentry{οἰκέω}{to inhabit; to manage, direct}
+\vocabentry{ὄμνυμι}{to swear}
+\vocabentry{ὅπου}{where (relative pronoun)}
+\vocabentry{παμ-πόνηρος, ος, ον}{thoroughly depraved, very bad}
+\vocabentry{παν-δοκεύτρια, ἡ}{a hostess}
+\vocabentry{πορνεῖον, τό}{brothel}
+\vocabentry{σκευή, ἡ}{equipment, dress, costume}
+\vocabentry{χράομαι}{to use (+ dat.)}
+\vocabentry{φράζω}{to point out, show; to declare, explain}
+\end{multicols}
+
+\vspace{-1.5em}
+\noindent\rule{\linewidth}{0.4pt}
+\vspace{-2em}
+
+\begin{multicols}{2}
+\begin{parcolumns}[colwidths={1=1.5em, 2=0.9\linewidth}]{2}
+\small
+
+\glossline{101}{%
+ \glossmix{}{cf. Eur. Hipp. 612 ἡ γλῶσσ' ὀμώμοχ', ἡ δὲ φρὴν ἀνώμοτος. ("The tongue swore, but the mind is unsworn.)}\\
+ \glossmix{ἐθέλουσαν}{with φρένα}\\
+ \glossmix{ὀμόσαι}{aor. inf. ὄμνυμι}\\
+}
+
+\glossline{103}{%
+ \glossmix{Μἀλλὰ...}{μή, ἀλλά. \textit{Don't (say that), but I'm more than crazy (about them)}}\\
+}
+
+\glossline{104}{%
+ \glossmix{ὡς καὶ σοὶ δοκεῖ.}{\textit{as it seems to you too}. I.e. Heracles thinks that Dionsyus actually agrees with him that these tragic lines are dirty tricks.}\\
+}
+
+\glossline{105}{%
+ \glossmix{Μὴ τὸν ἐμὸν οἴκει νοῦν}{According to the scholia this phrase is from the \textit{Andromache}, but the extant \textit{Andromache} does not include this phrase. Possibly the scholia's reference is an error for the \textit{Andromeda}.}\\
+}
+
+\glossline{106}{%
+ \glossmix{Καὶ μὴν}{\textit{Yes, and}}\\
+}
+
+\glossline{107}{%
+ \glossmix{Δειπνεῖν με δίδασκε.}{i.e. stick to your strengths and don't try to talk to me about poetry}\\
+}
+
+\glossline{108}{%
+ \glossmix{Ἀλλ' ὧνπερ ἕνεκα}{\textit{Now, as to why I came... [it was] in order that you show me...}.}\\
+}
+
+\glossline{109}{%
+ \glossmix{κατὰ σὴν μίμησιν,}{\textit{according to your imitation}, i.e. \textit{in imitation of you}}\\
+ \glossmix{ξένους}{i.e. the hosts that helped Heracles on his trip to the underworld.}
+}
+
+\glossline{110}{%
+ \glossmix{εἰ δεοίμην}{\textit{if I may ask} ???. Stanford has "in case of need"}\\
+}
+
+\glossline{111}{%
+ \glossmix{ἐχρῶ}{impf. 2s χράομαι, \textit{whom you used}}\\
+ \glossmix{ἐπὶ}{cf. 69}\\
+}
+
+\end{parcolumns}
+\end{multicols}
+
+\end{greek}
+\end{document}
