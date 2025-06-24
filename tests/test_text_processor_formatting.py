@@ -52,28 +52,28 @@ class TestAdjectiveFormatting:
         assert entry.format_latex_entry() == "\\vocabentry{εὐδαίμων, ον}{fortunate, wealthy, happy}"
 
     def test_three_ending_adjective_os_h_on_pattern(self, vocab_generator):
-        """Test that three-ending adjectives show all endings."""
-        # Test ἀγαθός (good) - should show "ος, ή, όν" pattern
+        """Test that three-ending adjectives show feminine and neuter endings (masculine already in lemma)."""
+        # Test ἀγαθός (good) - should show "ά, όν" pattern (masculine already in lemma)
         entries = vocab_generator.generate_vocab_list('ἀγαθός', interactive=False)
         assert len(entries) == 1
         entry = entries[0]
         
         assert entry.part_of_speech == "adjective"
-        assert entry.morphology in ["ος, ή, όν", "ός, ά, όν"]  # Allow both variants
+        assert entry.morphology in ["ά, όν", "ή, όν"]  # Allow both alpha and eta feminine
         assert "ἀγαθός," in entry.format_latex_entry()
-        assert ("ος, ή, όν" in entry.format_latex_entry() or 
-                "ός, ά, όν" in entry.format_latex_entry())
+        assert ("ά, όν" in entry.format_latex_entry() or 
+                "ή, όν" in entry.format_latex_entry())
 
     def test_three_ending_adjective_hs_es_pattern(self, vocab_generator):
-        """Test that three-ending adjectives with -ης/-ες pattern show both endings."""
-        # Test ἀληθής (true) - should show "ής, ές" pattern
+        """Test that three-ending adjectives with -ης/-ες pattern show only neuter ending (masculine already in lemma)."""
+        # Test ἀληθής (true) - should show "ές" pattern (masculine already in lemma)
         entries = vocab_generator.generate_vocab_list('ἀληθής', interactive=False)
         assert len(entries) == 1
         entry = entries[0]
         
         assert entry.part_of_speech == "adjective"
-        assert entry.morphology == "ής, ές"
-        assert entry.format_latex_entry() == "\\vocabentry{ἀληθής, ής, ές}{unconcealed, true}"
+        assert entry.morphology == "ές"
+        assert entry.format_latex_entry() == "\\vocabentry{ἀληθής, ές}{unconcealed, true}"
 
     def test_irregular_adjective_polys(self, vocab_generator):
         """Test that irregular adjectives use the predefined patterns."""
@@ -111,7 +111,7 @@ class TestMorphologicalClassDetection:
         assert MorphClass.is_adjective(entry.morph_classes)
         
         # Test the formatting logic
-        morphology = text_processor._format_adjective_morphology(entry)
+        morphology = text_processor.vocab_entry_service._format_adjective_morphology(entry)
         assert morphology == "ον"
 
     def test_wn_on_class_detection(self, text_processor):
@@ -125,7 +125,7 @@ class TestMorphologicalClassDetection:
         assert MorphClass.is_adjective(entry.morph_classes)
         
         # Test the formatting logic
-        morphology = text_processor._format_adjective_morphology(entry)
+        morphology = text_processor.vocab_entry_service._format_adjective_morphology(entry)
         assert morphology == "ον"
 
     def test_adj_2_1_2_class_detection(self, text_processor):
@@ -141,8 +141,8 @@ class TestMorphologicalClassDetection:
         assert MorphClass.ADJ_2_1_2 in adj_entry.morph_classes
         
         # Test the formatting logic
-        morphology = text_processor._format_adjective_morphology(adj_entry)
-        assert morphology in ["ος, ή, όν", "ός, ά, όν"]
+        morphology = text_processor.vocab_entry_service._format_adjective_morphology(adj_entry)
+        assert morphology in ["ά, όν", "ή, όν"]  # No longer includes masculine form
 
 class TestNounFormatting:
     """Test cases to ensure noun formatting wasn't broken by adjective fixes."""
@@ -194,6 +194,140 @@ class TestComparisonWithOldBehavior:
         # Should be the new correct format
         assert latex_output == "\\vocabentry{εὐδαίμων, ον}{fortunate, wealthy, happy}"
 
+class TestGreekAccentuationRules:
+    """Test cases for Greek accentuation rules in adjective morphology."""
+    
+    def test_final_syllable_accented_adjectives(self, vocab_generator):
+        """Test that adjectives with final syllable accented produce accented fem/neut forms."""
+        # Test καλός (beautiful) - accent on final syllable, should produce "ή, όν"
+        entries = vocab_generator.generate_vocab_list('καλός', interactive=False)
+        assert len(entries) == 1
+        entry = entries[0]
+        
+        assert entry.part_of_speech == "adjective"
+        assert entry.morphology == "ή, όν"
+        assert entry.format_latex_entry() == "\\vocabentry{καλός, ή, όν}{beautiful}"
+
+    def test_final_syllable_accented_adjectives_sophos(self, vocab_generator):
+        """Test another adjective with final syllable accented."""
+        # Test σοφός (wise) - accent on final syllable, should produce "ή, όν"
+        entries = vocab_generator.generate_vocab_list('σοφός', interactive=False)
+        assert len(entries) == 1
+        entry = entries[0]
+        
+        assert entry.part_of_speech == "adjective"
+        assert entry.morphology == "ή, όν"
+        assert entry.format_latex_entry() == "\\vocabentry{σοφός, ή, όν}{wise, skilled, clever}"
+
+    def test_non_final_syllable_accented_adjectives(self, vocab_generator):
+        """Test that adjectives with accent NOT on final syllable produce unaccented fem/neut forms."""
+        # Test πόσος (how much/many) - accent on first syllable, should produce "α, ον"
+        entries = vocab_generator.generate_vocab_list('πόσος', interactive=False)
+        assert len(entries) == 1
+        entry = entries[0]
+        
+        assert entry.part_of_speech == "adjective"
+        assert entry.morphology == "α, ον"
+        assert entry.format_latex_entry() == "\\vocabentry{πόσος, α, ον}{how much? how many?}"
+
+    def test_accent_detection_helper_method(self, text_processor):
+        """Test the _is_final_syllable_accented helper method directly."""
+        # Test words with accent on final syllable
+        assert text_processor.vocab_entry_service._is_final_syllable_accented("καλός") == True
+        assert text_processor.vocab_entry_service._is_final_syllable_accented("σοφός") == True
+        assert text_processor.vocab_entry_service._is_final_syllable_accented("μικρός") == True
+        
+        # Test words with accent NOT on final syllable
+        assert text_processor.vocab_entry_service._is_final_syllable_accented("πόσος") == False
+        assert text_processor.vocab_entry_service._is_final_syllable_accented("ἄλλος") == False
+        assert text_processor.vocab_entry_service._is_final_syllable_accented("πρῶτος") == False
+        
+        # Test words with diphthongs
+        assert text_processor.vocab_entry_service._is_final_syllable_accented("καλαί") == True  # Hypothetical feminine plural
+        assert text_processor.vocab_entry_service._is_final_syllable_accented("δεῖνος") == False  # Accent on diphthong in first syllable
+
+class TestIrregularAdjectives:
+    """Test cases for irregular adjective handling."""
+    
+    def test_irregular_adjective_allos(self, vocab_generator):
+        """Test that ἄλλος uses its irregular pattern."""
+        entries = vocab_generator.generate_vocab_list('ἄλλος', interactive=False)
+        assert len(entries) == 1
+        entry = entries[0]
+        
+        assert entry.part_of_speech == "adjective"
+        assert entry.morphology == "ἄλλη, ἄλλο"
+        assert entry.format_latex_entry() == "\\vocabentry{ἄλλος, ἄλλη, ἄλλο}{other, another}"
+
+    def test_irregular_adjective_megas(self, vocab_generator):
+        """Test that μέγας uses its irregular pattern."""
+        entries = vocab_generator.generate_vocab_list('μέγας', interactive=False)
+        assert len(entries) == 1
+        entry = entries[0]
+        
+        assert entry.part_of_speech == "adjective"
+        assert entry.morphology == "μέγας, μεγάλη, μέγα"
+        assert entry.format_latex_entry() == "\\vocabentry{μέγας, μεγάλη, μέγα}{big, great}"
+
+    def test_irregular_adjective_pas(self, vocab_generator):
+        """Test that πᾶς uses its irregular pattern."""
+        entries = vocab_generator.generate_vocab_list('πᾶς', interactive=False)
+        assert len(entries) == 1
+        entry = entries[0]
+        
+        assert entry.part_of_speech == "adjective"
+        assert entry.morphology == "πᾶς, πᾶσα, πᾶν"
+        assert entry.format_latex_entry() == "\\vocabentry{πᾶς, πᾶσα, πᾶν}{all, the whole}"
+
+    def test_irregular_adjective_polys(self, vocab_generator):
+        """Test that πολύς uses its irregular pattern."""
+        entries = vocab_generator.generate_vocab_list('πολύς', interactive=False)
+        assert len(entries) == 1
+        entry = entries[0]
+        
+        assert entry.part_of_speech == "adjective"
+        assert entry.morphology == "πολύς, πολλή, πολύ"
+        assert entry.format_latex_entry() == "\\vocabentry{πολύς, πολλή, πολύ}{much, many}"
+
+class TestArticleAdjectiveRecognition:
+    """Test cases for article-adjective morphological class recognition."""
+    
+    def test_article_adjective_class_in_adjective_set(self):
+        """Test that ARTICLE_ADJECTIVE is recognized as an adjective morphological class."""
+        from morph.morph_class import MorphClass
+        adjective_classes = MorphClass.get_adjective_classes()
+        assert MorphClass.ARTICLE_ADJECTIVE in adjective_classes
+
+    def test_article_adjective_is_adjective_method(self):
+        """Test that the is_adjective method returns True for ARTICLE_ADJECTIVE."""
+        from morph.morph_class import MorphClass
+        morph_classes = {MorphClass.ARTICLE_ADJECTIVE}
+        assert MorphClass.is_adjective(morph_classes) == True
+
+class TestAccentuationRuleConsistency:
+    """Test cases to ensure accentuation rules are applied consistently."""
+    
+    def test_accentuation_rule_in_pronoun_section(self, text_processor):
+        """Test that the accentuation rule is also applied in the pronoun/demonstrative section."""
+        from morph.morph_entry import MorphEntry
+        from morph.part_of_speech import PartOfSpeech
+        from morph.features import Feature
+        from morph.morph_class import MorphClass
+        
+        # Create a mock entry that would go through the pronoun section
+        mock_entry = MorphEntry(
+            original="τοιοῦτος",
+            part_of_speech=PartOfSpeech.NOUN,
+            lemma="τοιοῦτος",
+            features={Feature.DEMONSTRATIVE, Feature.MASCULINE},
+            morph_classes={MorphClass.PRON_ADJ1},
+            short_definition="such"
+        )
+        
+        # This should use the accentuation rule: τοιοῦτος has accent on penultimate, so should be unaccented
+        morphology = text_processor.vocab_entry_service._format_morphology(mock_entry)
+        assert morphology == "α, ον"  # Should be unaccented because accent is not on final syllable
+
 class TestEdgeCases:
     """Test edge cases and potential regressions."""
     
@@ -211,7 +345,7 @@ class TestEdgeCases:
         )
         
         # Should be detected as adjective and formatted accordingly
-        vocab_entry = text_processor.create_vocab_entry(mock_entry)
+        vocab_entry = text_processor.vocab_entry_service.create_vocab_entry(mock_entry)
         assert vocab_entry.part_of_speech == "adjective"
         assert vocab_entry.morphology == "ον"
 
@@ -229,6 +363,6 @@ class TestEdgeCases:
         )
         
         # Should still be detected as adjective due to ADJ_2_2
-        vocab_entry = text_processor.create_vocab_entry(mock_entry)
+        vocab_entry = text_processor.vocab_entry_service.create_vocab_entry(mock_entry)
         assert vocab_entry.part_of_speech == "adjective"
         assert vocab_entry.morphology == "ον" 

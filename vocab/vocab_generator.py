@@ -23,7 +23,7 @@ class VocabGenerator:
                 # Skip if the lemma is in stop words
                 if entry.lemma in self.stop_words:
                     continue
-                vocab_entry = self.text_processor.create_vocab_entry(entry)
+                vocab_entry = self.text_processor.vocab_entry_service.create_vocab_entry(entry)
                 # Only add if we haven't seen this lemma before
                 if vocab_entry.lemma not in vocab_dict:
                     vocab_dict[vocab_entry.lemma] = vocab_entry

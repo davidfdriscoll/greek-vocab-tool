@@ -131,6 +131,11 @@ class MorphClass(Enum):
     N_INFIX = "n_infix"        # For forms with n-infix
     
     RAW_PREVERB = "raw_preverb"      # For raw preverb forms (a preverb/prefix, often a preposition, identified in its uncombined, unprocessed form—typically before it is attached to a verb or fully analyzed as part of a compound verb)
+    EMI_AORIST = "emi_aor"           # For aorist forms of η-μι verbs like τιθήμι, ἵημι
+    AS_ASA_AN = "as_asa_an"          # For adjectives/participles with -ας, -ασα, -αν endings
+    INDECLINABLE_FORM = "indeclform" # For indeclinable forms (variant of indecl)
+    ELLW = "ellw"                    # For verbs ending in -έλλω
+    ADVERB = "adverb"                # For adverbial forms
     
     @classmethod
     def get_adjective_classes(cls) -> Set['MorphClass']:
@@ -144,7 +149,9 @@ class MorphClass(Enum):
             cls.IRREG_ADJ3,      # Irregular adjectives of third declension
             cls.WN_ON_COMP,      # Comparative adjectives like μείζων, μεῖζον
             cls.IRREG_COMP,      # Irregular comparative forms
-            cls.IRREG_SUPERL     # Irregular superlative forms
+            cls.IRREG_SUPERL,    # Irregular superlative forms
+            cls.AS_ASA_AN,       # Adjectives/participles with -ας, -ασα, -αν endings
+            cls.ARTICLE_ADJECTIVE  # For words like ἄλλος, αὐτός that can function as adjectives
         }
     
     @classmethod
