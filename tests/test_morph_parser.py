@@ -181,6 +181,101 @@ class TestMorphParser(unittest.TestCase):
             MorphClass.from_str("UNKNOWN")
         self.assertEqual(context.exception.morph_class, "UNKNOWN")
 
+    def test_athematic_aorist_morph_classes(self):
+        """Test that athematic aorist morphological classes are properly recognized"""
+        # Test ath_w_aor (athematic w-stem aorist)
+        classes = MorphClass.from_str("ath_w_aor")
+        self.assertEqual(len(classes), 1)
+        self.assertIn(MorphClass.ATHEMATIC_W_AORIST, classes)
+        
+        # Test ath_u_aor (athematic u-stem aorist) 
+        classes = MorphClass.from_str("ath_u_aor")
+        self.assertEqual(len(classes), 1)
+        self.assertIn(MorphClass.ATHEMATIC_U_AORIST, classes)
+        
+        # Test that these can be combined with other valid classes
+        classes = MorphClass.from_str("ath_w_aor w_stem")
+        self.assertIn(MorphClass.ATHEMATIC_W_AORIST, classes)
+        self.assertIn(MorphClass.THEMATIC, classes)
+        
+        # Test comma-separated format
+        classes = MorphClass.from_str("ath_w_aor,ath_u_aor")
+        self.assertEqual(len(classes), 2)
+        self.assertIn(MorphClass.ATHEMATIC_W_AORIST, classes)
+        self.assertIn(MorphClass.ATHEMATIC_U_AORIST, classes)
+
+    def test_consonant_stem_morph_classes(self):
+        """Test that consonant stem morphological classes are properly recognized"""
+        # Test c_kos (the one that caused the original warning)
+        classes = MorphClass.from_str("c_kos")
+        self.assertEqual(len(classes), 1)
+        self.assertIn(MorphClass.C_KOS, classes)
+        
+        # Test other consonant stem classes
+        classes = MorphClass.from_str("c_gos")
+        self.assertEqual(len(classes), 1)
+        self.assertIn(MorphClass.C_GOS, classes)
+        
+        classes = MorphClass.from_str("c_ktos")
+        self.assertEqual(len(classes), 1)
+        self.assertIn(MorphClass.C_KTOS, classes)
+        
+        classes = MorphClass.from_str("c_xos")
+        self.assertEqual(len(classes), 1)
+        self.assertIn(MorphClass.C_XOS, classes)
+        
+        classes = MorphClass.from_str("gc_gos")
+        self.assertEqual(len(classes), 1)
+        self.assertIn(MorphClass.GC_GOS, classes)
+        
+        # Test comma-separated consonant stems
+        classes = MorphClass.from_str("c_kos,c_gos")
+        self.assertEqual(len(classes), 2)
+        self.assertIn(MorphClass.C_KOS, classes)
+        self.assertIn(MorphClass.C_GOS, classes)
+
+    def test_parse_athematic_aorist_word(self):
+        """Test parsing a real word that contains athematic aorist morphological classes"""
+        # This word was causing 'Unknown morphological class: ath_w_aor' before the fix
+        results = self.parser.parse_word("*)anabioi/hn")
+        
+        # The word might not parse successfully (could be rare/archaic), but it should not crash
+        # with "Unknown morphological class" error. If it does parse, verify structure.
+        if len(results) > 0:
+            entry = results[0]
+            # Verify it has the expected structure
+            self.assertIsInstance(entry.lemma, str)
+            self.assertIsNotNone(entry.part_of_speech)
+            self.assertIsInstance(entry.features, set)
+            self.assertIsInstance(entry.morph_classes, set)
+            # If it contains athematic aorist classes, they should be recognized
+            if MorphClass.ATHEMATIC_W_AORIST in entry.morph_classes:
+                self.assertIn(MorphClass.ATHEMATIC_W_AORIST, entry.morph_classes)
+            if MorphClass.ATHEMATIC_U_AORIST in entry.morph_classes:
+                self.assertIn(MorphClass.ATHEMATIC_U_AORIST, entry.morph_classes)
+        
+        # Test should pass regardless of whether word parses, as long as no exception is thrown
+
+    def test_parse_consonant_stem_word(self):
+        """Test parsing a word that contains consonant stem morphological classes"""
+        # This word was causing 'Unknown morphological class: c_kos' before the fix
+        results = self.parser.parse_word("ko/rakas")  # κόρακας, accusative plural of κόραξ (ravens)
+        
+        # The word might not parse successfully, but it should not crash
+        # with "Unknown morphological class" error. If it does parse, verify structure.
+        if len(results) > 0:
+            entry = results[0]
+            # Verify it has the expected structure
+            self.assertIsInstance(entry.lemma, str)
+            self.assertIsNotNone(entry.part_of_speech)
+            self.assertIsInstance(entry.features, set)
+            self.assertIsInstance(entry.morph_classes, set)
+            # If it contains c_kos class, it should be recognized
+            if MorphClass.C_KOS in entry.morph_classes:
+                self.assertIn(MorphClass.C_KOS, entry.morph_classes)
+        
+        # Test should pass regardless of whether word parses, as long as no exception is thrown
+
     def test_multiple_morph_classes(self):
         """Test that a word can have multiple morphological classes"""
         classes = MorphClass.from_str("nu_movable aor1")

@@ -52,6 +52,8 @@ class MorphClass(Enum):
     FIRST_AORIST = "aor1"
     SECOND_AORIST = "aor2"
     ROOT_AORIST = "aor_rt"
+    ATHEMATIC_W_AORIST = "ath_w_aor"  # Athematic w-stem aorist
+    ATHEMATIC_U_AORIST = "ath_u_aor"  # Athematic u-stem aorist
     
     # Perfect patterns
     PERFECT_ACTIVE = "perf_act"  # Perfect active
@@ -136,6 +138,15 @@ class MorphClass(Enum):
     INDECLINABLE_FORM = "indeclform" # For indeclinable forms (variant of indecl)
     ELLW = "ellw"                    # For verbs ending in -έλλω
     ADVERB = "adverb"                # For adverbial forms
+    
+    # Consonant stem patterns for third declension nouns
+    C_KOS = "c_kos"                  # For nouns like κόραξ, κόρακος (stem ξ→κ)
+    C_GOS = "c_gos"                  # For nouns like φλόξ, φλογός (stem γ)
+    C_KTOS = "c_ktos"                # For nouns like γάλα, γάλακτος (stem κτ)
+    C_XOS = "c_xos"                  # For nouns like θρίξ, τριχός (stem χ)
+    C_GGOS = "c_ggos"                # For double gamma consonant stems
+    GC_GOS = "gc_gos"                # For gamma-chi stems like φάρυγξ, φάρυγγος
+    HC_EKOS = "hc_ekos"              # For specific consonant stem pattern
     
     @classmethod
     def get_adjective_classes(cls) -> Set['MorphClass']:
