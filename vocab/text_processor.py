@@ -15,10 +15,13 @@ class TextProcessor:
         self.vocab_entry_service = VocabEntryService()
         
     def extract_words(self, text: str) -> List[str]:
-        """Extract individual Greek words from text, ignoring punctuation."""
+        """Extract individual Greek words from text, preserving elision apostrophes."""
         # Split on whitespace first to get each potential word
         potential_words = text.split()
         words = []
+        
+        # Define apostrophe characters that can indicate elision
+        apostrophe_chars = ["'", "ʼ", "'", "᾽", "᾿", "ʻ", "`"]
         
         for word in potential_words:
             # Check if it's a beta code word with an apostrophe
@@ -29,19 +32,44 @@ class TextProcessor:
                 words.append(word)
             # Otherwise extract Greek Unicode characters
             else:
-                # Check for Unicode words with apostrophes
+                # Check for Unicode words with initial apostrophes
                 if word.startswith("'") and any(0x0370 <= ord(c) <= 0x03FF or 0x1F00 <= ord(c) <= 0x1FFF for c in word[1:]):
                     words.append(word)
-                # Extract Greek Unicode characters
-                greek_word_match = re.findall(r'[\u0370-\u03FF\u1F00-\u1FFF]+', word)
-                if greek_word_match:
-                    words.extend(greek_word_match)
+                else:
+                    # Extract Greek Unicode characters, preserving trailing elision apostrophes
+                    # First, find all Greek character sequences
+                    greek_matches = list(re.finditer(r'[\u0370-\u03FF\u1F00-\u1FFF]+', word))
+                    
+                    for match in greek_matches:
+                        greek_word = match.group()
+                        start_pos = match.start()
+                        end_pos = match.end()
+                        
+                        # Check if there's an elision apostrophe immediately after this Greek word
+                        if end_pos < len(word) and word[end_pos] in apostrophe_chars:
+                            # Include the apostrophe as part of the word
+                            greek_word += word[end_pos]
+                        
+                        words.append(greek_word)
                     
         return list(set(words))  # Remove duplicates
         
     def process_word(self, word: str, interactive: bool = True) -> List[MorphEntry]:
         """Process a single word, optionally asking for user disambiguation."""
         original_word = word
+        
+        # Normalize apostrophe characters that cause beta code conversion issues
+        # The modifier letter apostrophe (ʼ) gets converted to ')' instead of "'"
+        # So convert it to Greek koronis (᾽) which converts correctly to a single apostrophe
+        apostrophe_mapping = {
+            'ʼ': '᾽',  # modifier letter apostrophe → Greek koronis
+            'ʻ': '᾽',  # modifier letter turned comma → Greek koronis  
+            '`': '᾽',  # grave accent → Greek koronis
+            chr(0x2019): '᾽',  # right single quotation mark → Greek koronis
+        }
+        
+        for bad_apos, good_apos in apostrophe_mapping.items():
+            word = word.replace(bad_apos, good_apos)
         
         # Preprocess words with initial apostrophes (elided forms)
         apostrophe_chars = ["'", "ʼ", "'", "᾽", "᾿", "ʻ", "`"]

@@ -146,7 +146,10 @@ class MorphClass(Enum):
     C_XOS = "c_xos"                  # For nouns like θρίξ, τριχός (stem χ)
     C_GGOS = "c_ggos"                # For double gamma consonant stems
     GC_GOS = "gc_gos"                # For gamma-chi stems like φάρυγξ, φάρυγγος
-    HC_EKOS = "hc_ekos"              # For specific consonant stem pattern
+    HC_EKOS = "hc_ekos"
+    
+    # Additional morphological classes that can appear in the morphological class section
+    POETIC = "poetic"                # For poetic forms (can appear as both feature and morph class)
     
     @classmethod
     def get_adjective_classes(cls) -> Set['MorphClass']:
