@@ -19,6 +19,7 @@ class PartOfSpeech(Enum):
     INTERJECTION = "Interj"
     NUMERAL = "Num"
     PARTICIPLE = "P"  # For participles like εἰωθότων
+    ETHNIC = "E"  # For ethnic designations and proper names
     
     @classmethod
     def from_str(cls, code: str) -> 'PartOfSpeech':
