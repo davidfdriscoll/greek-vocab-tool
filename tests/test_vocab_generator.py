@@ -91,4 +91,20 @@ def test_apostrophe_handling(vocab_generator):
     assert "ἐξεμέω:" in formatted
     
     # Verify we got exactly two entries
-    assert len(entries) == 2 
+    assert len(entries) == 2
+
+def test_us_eia_u_preference_over_us_u(vocab_generator):
+    """Test that US_EIA_U morphological class is preferred over US_U for the same lemma."""
+    # ἡδύς has both us_eia_u (correct: εῖα, ύ) and us_u (incorrect: ὁ) analyses in Morpheus
+    # We should get the us_eia_u analysis with εῖα, ύ morphology
+    text = "ἡδύς"
+    entries = vocab_generator.generate_vocab_list(text, interactive=False)
+    
+    # Should find exactly one entry for ἡδύς
+    hedys_entries = [e for e in entries if e.lemma == "ἡδύς"]
+    assert len(hedys_entries) == 1
+    
+    entry = hedys_entries[0]
+    assert entry.part_of_speech == "adjective"
+    assert entry.morphology == "εῖα, ύ"  # Should be the US_EIA_U pattern, not ὁ from US_U
+    assert entry.format_latex_entry() == "\\vocabentry{ἡδύς, εῖα, ύ}{sweet}" 

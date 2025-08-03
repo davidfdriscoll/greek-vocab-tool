@@ -1,5 +1,6 @@
 from typing import List, Set, Dict
 from morph import MorphParser
+from morph.morph_class import MorphClass
 from .text_processor import TextProcessor
 from .vocab_entry import VocabEntry
 
@@ -24,9 +25,20 @@ class VocabGenerator:
                 if entry.lemma in self.stop_words:
                     continue
                 vocab_entry = self.text_processor.vocab_entry_service.create_vocab_entry(entry)
-                # Only add if we haven't seen this lemma before
+                
+                # Add logic to prefer better morphological analyses for the same lemma  
                 if vocab_entry.lemma not in vocab_dict:
+                    # First time seeing this lemma - add it
                     vocab_dict[vocab_entry.lemma] = vocab_entry
+                else:
+                    # We've seen this lemma before - check if we should replace
+                    existing_entry = vocab_dict[vocab_entry.lemma]
+                    # Prefer US_EIA_U over US_U morphological class (ἡδύς case: εῖα,ύ vs ὁ)
+                    # This handles cases where Morpheus gives both analyses but US_EIA_U is correct
+                    if (MorphClass.US_EIA_U in entry.morph_classes and 
+                        existing_entry.part_of_speech == "noun" and 
+                        existing_entry.morphology == "ὁ"):
+                        vocab_dict[vocab_entry.lemma] = vocab_entry
         
         # Add proper names that couldn't be parsed
         for proper_name in self.text_processor.PROPER_NAMES:

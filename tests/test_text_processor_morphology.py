@@ -118,6 +118,42 @@ class TestTextProcessorMorphology(unittest.TestCase):
         self.assertEqual(vocab_entry.morphology, "εῖα, ύ")  # Should not duplicate masculine
         self.assertEqual(vocab_entry.definition, "sweet")
     
+    def test_hedys_pattern(self):
+        """Test ἡδύς (sweet) follows US_EIA_U morphological pattern correctly."""
+        entry = self.create_mock_entry(
+            lemma="ἡδύς",
+            part_of_speech=PartOfSpeech.NOUN,  # Adjectives are classified as NOUN in morpheus
+            features={Feature.MASCULINE, Feature.FEMININE},
+            morph_classes={MorphClass.US_EIA_U},
+            definition="sweet"
+        )
+        
+        vocab_entry = self.processor.vocab_entry_service.create_vocab_entry(entry)
+        
+        self.assertEqual(vocab_entry.lemma, "ἡδύς")
+        self.assertEqual(vocab_entry.part_of_speech, "adjective")
+        self.assertEqual(vocab_entry.morphology, "εῖα, ύ")  # Should be εῖα, ύ not ή, όν
+        self.assertEqual(vocab_entry.definition, "sweet")
+        self.assertEqual(vocab_entry.format_latex_entry(), "\\vocabentry{ἡδύς, εῖα, ύ}{sweet}")
+    
+    def test_hedys_fallback_pattern(self):
+        """Test ἡδύς behavior without explicit US_EIA_U classification - treated as noun."""
+        entry = self.create_mock_entry(
+            lemma="ἡδύς",
+            part_of_speech=PartOfSpeech.NOUN,  # Adjectives are classified as NOUN in morpheus
+            features={Feature.MASCULINE, Feature.FEMININE},
+            morph_classes=set(),  # No specific morphological class - test fallback logic
+            definition="sweet"
+        )
+        
+        vocab_entry = self.processor.vocab_entry_service.create_vocab_entry(entry)
+        
+        self.assertEqual(vocab_entry.lemma, "ἡδύς")
+        self.assertEqual(vocab_entry.part_of_speech, "noun")  # Without adjective morph class, treated as noun
+        self.assertEqual(vocab_entry.morphology, "ὁ")  # Treated as masculine noun without adjective classification
+        self.assertEqual(vocab_entry.definition, "sweet")
+        self.assertEqual(vocab_entry.format_latex_entry(), "\\vocabentry{ἡδύς, ὁ}{sweet}")
+    
     def test_wn_on_pattern(self):
         """Test WN_ON morphological pattern (σώφρων type) - two-ending adjective."""
         entry = self.create_mock_entry(
