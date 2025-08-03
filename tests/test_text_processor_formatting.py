@@ -221,14 +221,14 @@ class TestGreekAccentuationRules:
 
     def test_non_final_syllable_accented_adjectives(self, vocab_generator):
         """Test that adjectives with accent NOT on final syllable produce unaccented fem/neut forms."""
-        # Test πόσος (how much/many) - accent on first syllable, should produce "α, ον"
+        # Test πόσος (how much/many) - accent on first syllable, should produce "η, ον"
         entries = vocab_generator.generate_vocab_list('πόσος', interactive=False)
         assert len(entries) == 1
         entry = entries[0]
         
         assert entry.part_of_speech == "adjective"
-        assert entry.morphology == "α, ον"
-        assert entry.format_latex_entry() == "\\vocabentry{πόσος, α, ον}{how much? how many?}"
+        assert entry.morphology == "η, ον"
+        assert entry.format_latex_entry() == "\\vocabentry{πόσος, η, ον}{how much? how many?}"
 
     def test_accent_detection_helper_method(self, text_processor):
         """Test the _is_final_syllable_accented helper method directly."""

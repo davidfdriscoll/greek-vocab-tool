@@ -132,6 +132,7 @@ class MorphClass(Enum):
     AS_AOS = "as_aos"              # Third declension neuter nouns ending in -ας with genitive -αος/-ως like δέμας, δέματος (body)
     AS_ATOS = "as_atos"            # Third declension neuter nouns ending in -ας with genitive -ατος like τέρας, τέρατος (monster)
     AIRW = "airw"                  # For verbs like αἴρω
+    EIRW = "eirw"                  # For verbs like αἴρω (ἀείρω) and related forms
     WS_W = "ws_w"                  # For nouns like νεώς, νεώ
     AOS_AOU = "aos_aou"            # For nouns like γέλως, γέλω
     WN_ON_COMP = "wn_on_comp"      # For comparative adjectives with -ων, -ον

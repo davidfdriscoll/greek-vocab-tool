@@ -181,6 +181,13 @@ class TestMorphParser(unittest.TestCase):
             MorphClass.from_str("UNKNOWN")
         self.assertEqual(context.exception.morph_class, "UNKNOWN")
 
+    def test_eirw_morph_class(self):
+        """Test that the 'eirw' morphological class is properly recognized"""
+        # This test verifies that the 'eirw' class that was causing warnings is now handled
+        classes = MorphClass.from_str("eirw")
+        self.assertEqual(len(classes), 1)
+        self.assertIn(MorphClass.EIRW, classes)
+
     def test_athematic_aorist_morph_classes(self):
         """Test that athematic aorist morphological classes are properly recognized"""
         # Test ath_w_aor (athematic w-stem aorist)

@@ -254,7 +254,7 @@ class VocabEntryService:
             if len(lemma) >= 2 and lemma[-2] in "ειρ":
                 return "ά, όν" if final_accented else "α, ον"  # Always alpha after ε, ι, ρ
             else:
-                return "ή, όν" if final_accented else "α, ον"  # Apply accentuation rule
+                return "ή, όν" if final_accented else "η, ον"  # Apply accentuation rule
         elif MorphClass.ADJ_2_2 in entry.morph_classes:
             return "όν" if final_accented else "ον"  # Two-ending adjective: apply accentuation rule
         elif MorphClass.ADJ_3_3 in entry.morph_classes:
