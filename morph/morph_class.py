@@ -41,6 +41,8 @@ class MorphClass(Enum):
     EUW_PRESENT = "evw_pr"  # Present stem of -ευω verbs
     EU_STEM = "ev_stem"     # Epsilon-upsilon stem verbs
     ALLW = "allw"          # For verbs in -αλλω
+    ILLW = "illw"          # For verbs in -ιλλω
+    AV_STEM = "av_stem"    # Alpha-upsilon stem verbs (like καίω, κλαίω)
     
     # Contract verb classes
     AW_PRESENT = "aw_pr"      # Alpha contract present stem
@@ -71,6 +73,7 @@ class MorphClass(Enum):
     INDEFINITE = "indef"      # For indefinite pronouns
     SYLLABIC_AUGMENT = "syll_augment"  # For verbs with syllabic augment
     UNAUGMENTED = "unaugmented"
+    A_PRIV = "a_priv"         # For words with privative alpha prefix (ἀ-/ἀν-)
     
     # Pronoun classes
     PRON_ADJ1 = "pron_adj1"  # For demonstrative pronouns like τοῦτο
@@ -149,6 +152,7 @@ class MorphClass(Enum):
     N_INFIX = "n_infix"        # For forms with n-infix
     
     RAW_PREVERB = "raw_preverb"      # For raw preverb forms (a preverb/prefix, often a preposition, identified in its uncombined, unprocessed form—typically before it is attached to a verb or fully analyzed as part of a compound verb)
+    ELIDE_PREVERB = "elide_preverb"  # For preverbs that undergo elision when combined with verbs
     EMI_AORIST = "emi_aor"           # For aorist forms of η-μι verbs like τιθήμι, ἵημι
     AS_ASA_AN = "as_asa_an"          # For adjectives/participles with -ας, -ασα, -αν endings
     INDECLINABLE_FORM = "indeclform" # For indeclinable forms (variant of indecl)
@@ -247,6 +251,7 @@ class MorphClass(Enum):
     PERFP_UN = "perfp_un"            # Perfect passive unmarked stems
     PERFP_V = "perfp_v"              # Perfect passive with vowel stems
     POUS_PODOS = "pous_podos"        # Third declension nouns with -πους/-ποδος pattern (like πούς, ποδός)
+    GEOG_NAME = "geog_name"          # Geographical names and place names
     
     @classmethod
     def get_adjective_classes(cls) -> Set['MorphClass']:

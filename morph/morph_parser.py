@@ -108,6 +108,7 @@ class MorphParser:
             # Check for various apostrophe characters that might appear in Unicode text
             apostrophe_chars = ["'", "ʼ", "'", "᾽", "᾿", "ʻ", "`"]
             has_initial_apostrophe = any(word.startswith(a) for a in apostrophe_chars)
+            has_final_apostrophe = any(word.endswith(a) for a in apostrophe_chars)
             
             # Store the original word for later reference
             original_word = word
@@ -119,12 +120,17 @@ class MorphParser:
             
             if not is_beta_code:
                 try:
-                    # If word has an initial apostrophe in Unicode, we need to preserve it
+                    # Handle apostrophes in Unicode
                     if has_initial_apostrophe:
-                        # Remove apostrophe temporarily, convert to Beta Code, then add it back
+                        # Remove initial apostrophe temporarily, convert to Beta Code, then add it back
                         apostrophe = "'"  # Use standard apostrophe for beta code
                         word_without_apostrophe = word[1:]
                         word = apostrophe + beta_code.greek_to_beta_code(word_without_apostrophe)
+                    elif has_final_apostrophe:
+                        # Remove final apostrophe temporarily, convert to Beta Code, then add it back
+                        apostrophe = "'"  # Use standard apostrophe for beta code
+                        word_without_apostrophe = word[:-1]
+                        word = beta_code.greek_to_beta_code(word_without_apostrophe) + apostrophe
                     else:
                         word = beta_code.greek_to_beta_code(word)
                 except Exception as e:

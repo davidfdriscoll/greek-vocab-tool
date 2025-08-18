@@ -12,10 +12,19 @@ class VocabEntry:
     
     def __lt__(self, other):
         """Enable sorting by lemma with proper Greek character handling."""
-        # Normalize both strings to ensure consistent sorting
-        a = unicodedata.normalize('NFD', self.lemma.lower())
-        b = unicodedata.normalize('NFD', other.lemma.lower())
-        return a < b
+        return self._greek_sort_key(self.lemma) < self._greek_sort_key(other.lemma)
+    
+    def _greek_sort_key(self, text: str) -> str:
+        """Create a sort key for Greek text that strips diacritics and follows Greek alphabetical order."""
+        # Normalize to NFD to separate base characters from diacritics
+        normalized = unicodedata.normalize('NFD', text.lower())
+        
+        # Remove all combining diacritical marks (accents, breathing marks, etc.)
+        # These are Unicode categories starting with 'M' (marks)
+        stripped = ''.join(char for char in normalized 
+                          if not unicodedata.category(char).startswith('M'))
+        
+        return stripped
     
     def _get_headword(self) -> str:
         """Get the headword portion of the entry (lemma + morphology)."""

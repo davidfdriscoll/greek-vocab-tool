@@ -36,6 +36,7 @@ class Feature(Enum):
     NOM_VOC = "nom/voc"  # Combined case
     NOM_ACC = "nom/acc"  # Combined nominative/accusative case
     NOM_VOC_ACC = "nom/voc/acc"  # Combined case for neuter forms
+    GEN_DAT = "gen/dat"  # Combined genitive/dative case (common for dual forms)
     
     # Tense
     PRESENT = "pres"
@@ -47,6 +48,7 @@ class Feature(Enum):
     AORIST2 = "aor2"  # Second aorist
     PERFECT = "perf"
     PLUPERFECT = "plup"
+    FUTURE_PERFECT = "futperf"  # Future perfect tense
     
     # Mood
     INDICATIVE = "ind"
@@ -101,6 +103,7 @@ class Feature(Enum):
     
     # Degree features
     COMPARATIVE = "comp"     # For comparative degree
+    SUPERLATIVE = "superl"   # For superlative degree
     
     # Dialect features
     EPIC = "epic"        # For epic dialect forms
@@ -117,6 +120,7 @@ class Feature(Enum):
     
     # Adding missing features from the new warnings
     LATE = "late"           # For late Greek forms
+    LATER = "later"         # For later Greek forms (variant of late)
     RARE = "rare"           # For rare forms
     APOCOPE = "apocope"     # For forms with apocope
     PROSE = "prose"         # For prose forms
