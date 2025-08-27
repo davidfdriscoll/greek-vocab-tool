@@ -78,6 +78,7 @@ class MorphClass(Enum):
     # Pronoun classes
     PRON_ADJ1 = "pron_adj1"  # For demonstrative pronouns like τοῦτο
     PRON_ADJ3 = "pron_adj3"  # For third declension pronouns
+    DEMONSTR = "demonstr"    # For demonstrative pronouns and adjectives (like iste, ille, hic in Latin or ὅδε, οὗτος, ἐκεῖνος in Greek)
     
     # Stem classes
     SIGMA_STEM = "ss"  # Sigma stem nouns
@@ -152,6 +153,7 @@ class MorphClass(Enum):
     N_INFIX = "n_infix"        # For forms with n-infix
     
     RAW_PREVERB = "raw_preverb"      # For raw preverb forms (a preverb/prefix, often a preposition, identified in its uncombined, unprocessed form—typically before it is attached to a verb or fully analyzed as part of a compound verb)
+    UNASP_PREVERB = "unasp_preverb"  # For unaspirated preverb forms (preverbs that do not cause aspiration in attached verbs)
     ELIDE_PREVERB = "elide_preverb"  # For preverbs that undergo elision when combined with verbs
     EMI_AORIST = "emi_aor"           # For aorist forms of η-μι verbs like τιθήμι, ἵημι
     AS_ASA_AN = "as_asa_an"          # For adjectives/participles with -ας, -ασα, -αν endings
@@ -282,7 +284,8 @@ class MorphClass(Enum):
             cls.VERB_ADJ1,       # Verbal adjectives pattern 1
             cls.VERB_ADJ2,       # Verbal adjectives pattern 2
             cls.WN_OUSA_ON,      # Participles with -ων/-ουσα/-ον pattern
-            cls.ARTICLE_ADJECTIVE  # For words like ἄλλος, αὐτός that can function as adjectives
+            cls.ARTICLE_ADJECTIVE,  # For words like ἄλλος, αὐτός that can function as adjectives
+            cls.DEMONSTR         # For demonstrative pronouns/adjectives that can function as adjectives
         }
     
     @classmethod
