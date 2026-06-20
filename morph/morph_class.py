@@ -43,6 +43,9 @@ class MorphClass(Enum):
     ALLW = "allw"          # For verbs in -αλλω
     ILLW = "illw"          # For verbs in -ιλλω
     AV_STEM = "av_stem"    # Alpha-upsilon stem verbs (like καίω, κλαίω)
+    EINW = "einw"          # Verb stem pattern for -ειν verbs (like ἀποκτείνω)
+    R_E_I_ALPHA = "r_e_i_alpha"  # Attic contraction pattern: η → ᾱ after ρ, ε, ι
+    LATE = "late"            # Late period Greek (post-classical usage)
     
     # Contract verb classes
     AW_PRESENT = "aw_pr"      # Alpha contract present stem

@@ -74,6 +74,7 @@ class Feature(Enum):
     INDECLINABLE_ALT = "indecl"  # Alternative spelling
     CONJUNCTION = "conj"  # For conjunctions like καί
     CONTRACTED = "contr"  # For contracted forms
+    UNCONTRACTED = "uncontr"  # For uncontracted forms (esp. in epic poetry)
     INDEFINITE = "indef"  # For indefinite pronouns
     EXCLAMATION = "exclam"  # For interjections like ὦ
     PREPOSITION = "prep"  # For prepositions
